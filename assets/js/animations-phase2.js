@@ -51,23 +51,23 @@ class PageTransitions {
     }
     
     /**
-     * Navigate with smooth transition effect
+     * Navigate with simple smooth transition effect
      */
     async navigateWithTransition(url, linkElement) {
         this.isTransitioning = true;
         
         try {
-            // Add navigation effect to clicked link
+            // Add simple navigation effect to clicked link
             linkElement.classList.add('navigating');
             
-            // Show loading overlay
-            this.showLoadingOverlay();
+            // Simple page fade out
+            document.body.style.opacity = '0.8';
+            document.body.style.transition = 'opacity 0.2s ease';
             
-            // Animate page exit
-            await this.animatePageExit();
-            
-            // Navigate to new page
-            window.location.href = url;
+            // Navigate after short delay
+            setTimeout(() => {
+                window.location.href = url;
+            }, 200);
             
         } catch (error) {
             console.error('Page transition error:', error);
@@ -77,41 +77,27 @@ class PageTransitions {
     }
     
     /**
-     * Create loading overlay element
+     * Create loading overlay element (simplified)
      */
     createLoadingOverlay() {
-        if (document.getElementById('pageLoadingOverlay')) return;
-        
-        const overlay = document.createElement('div');
-        overlay.id = 'pageLoadingOverlay';
-        overlay.className = 'page-loading-overlay';
-        overlay.innerHTML = `
-            <div class="page-loading-content">
-                <div class="page-loading-spinner"></div>
-                <p>Loading...</p>
-            </div>
-        `;
-        
-        document.body.appendChild(overlay);
-        this.loadingOverlay = overlay;
+        // Simplified - no loading overlay needed
+        return;
     }
     
     /**
-     * Show loading overlay
+     * Show loading overlay (simplified)
      */
     showLoadingOverlay() {
-        if (this.loadingOverlay) {
-            this.loadingOverlay.classList.add('active');
-        }
+        // Simplified - no loading overlay
+        return;
     }
     
     /**
-     * Hide loading overlay
+     * Hide loading overlay (simplified)
      */
     hideLoadingOverlay() {
-        if (this.loadingOverlay) {
-            this.loadingOverlay.classList.remove('active');
-        }
+        // Simplified - no loading overlay
+        return;
     }
     
     /**
@@ -221,17 +207,15 @@ class AdvancedDropdowns {
     }
     
     /**
-     * Setup staggered animation for dropdown items
+     * Setup staggered animation for dropdown items (simplified)
      */
     setupStaggeredItems(submenu) {
-        const items = submenu.querySelectorAll('li');
-        items.forEach((item, index) => {
-            item.style.setProperty('--item-index', index);
-        });
+        // Simplified - no stagger animations
+        return;
     }
     
     /**
-     * Open dropdown with animation
+     * Open dropdown with simple animation
      */
     openDropdown(dropdown, submenu) {
         // Close other dropdowns first
@@ -240,30 +224,14 @@ class AdvancedDropdowns {
         this.activeDropdown = dropdown;
         dropdown.classList.add('active');
         submenu.classList.add('active');
-        
-        // Trigger staggered animation for items
-        const items = submenu.querySelectorAll('li');
-        items.forEach((item, index) => {
-            setTimeout(() => {
-                item.style.opacity = '1';
-                item.style.transform = 'translateX(0)';
-            }, index * 50);
-        });
     }
     
     /**
-     * Close dropdown
+     * Close dropdown (simplified)
      */
     closeDropdown(dropdown, submenu) {
         dropdown.classList.remove('active');
         submenu.classList.remove('active');
-        
-        // Reset item animations
-        const items = submenu.querySelectorAll('li');
-        items.forEach(item => {
-            item.style.opacity = '';
-            item.style.transform = '';
-        });
         
         if (this.activeDropdown === dropdown) {
             this.activeDropdown = null;
@@ -341,9 +309,22 @@ class EnhancedCertificateGallery {
             // Add overlay if not exists
             this.addOverlay(cert);
             
-            cert.addEventListener('click', () => {
+            // Prevent double click with debounce
+            let clickTimeout = null;
+            
+            cert.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Prevent double clicks
+                if (clickTimeout) return;
+                
+                clickTimeout = setTimeout(() => {
+                    clickTimeout = null;
+                }, 300);
+                
                 const img = cert.querySelector('img');
-                if (img) {
+                if (img && !document.querySelector('.certificate-lightbox-enhanced.active')) {
                     this.openLightbox(img, index);
                 }
             });
@@ -360,37 +341,19 @@ class EnhancedCertificateGallery {
     }
     
     /**
-     * Add overlay to certificate if not exists
+     * Add overlay to certificate (disabled)
      */
     addOverlay(cert) {
-        if (cert.querySelector('.certificate-overlay')) return;
-        
-        const overlay = document.createElement('div');
-        overlay.className = 'certificate-overlay';
-        overlay.innerHTML = `
-            <div class="certificate-overlay-content">
-                <div class="certificate-overlay-icon">🔍</div>
-                <div class="certificate-overlay-text">Click to enlarge</div>
-            </div>
-        `;
-        
-        cert.appendChild(overlay);
+        // Overlay disabled
+        return;
     }
     
     /**
-     * Animate certificate hover effects
+     * Animate certificate hover effects (disabled)
      */
     animateCertificateHover(cert, isHover) {
-        const overlay = cert.querySelector('.certificate-overlay');
-        const img = cert.querySelector('img');
-        
-        if (overlay) {
-            overlay.style.opacity = isHover ? '1' : '0';
-        }
-        
-        if (img) {
-            img.style.transform = isHover ? 'scale(1.05)' : 'scale(1)';
-        }
+        // Hover animations disabled
+        return;
     }
     
     /**

@@ -420,27 +420,18 @@
    5. NAVIGATION ENHANCEMENTS
 ======================================== */
 
-/* Navigation Links Hover */
+/* Navigation Links (animations disabled) */
 .nav-link {
     position: relative;
-    transition: all 0.3s ease;
 }
 
 .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary-blue), var(--primary-orange));
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+    display: none;
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
-    width: 100%;
+    display: none;
 }
 
 /* Mobile Toggle Animation Enhancement */

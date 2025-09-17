@@ -527,10 +527,12 @@ window.KME_API = {
     cache: API_CACHE
 };
 
-// Cleanup on page unload
-window.addEventListener('beforeunload', () => {
-    // Clear cache if it gets too large
-    if (API_CACHE.size > 50) {
-        API_CACHE.clear();
+// Cleanup with Page Visibility API (safer alternative to beforeunload)
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+        // Clear cache if it gets too large
+        if (API_CACHE.size > 50) {
+            API_CACHE.clear();
+        }
     }
 });

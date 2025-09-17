@@ -52,21 +52,13 @@
     }
 }
 
-/* Navigation Link Click Animation */
+/* Navigation Link Click Animation (disabled) */
 .nav-link.navigating {
     position: relative;
 }
 
 .nav-link.navigating::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
+    display: none;
         rgba(110, 193, 228, 0.3),
         transparent
     );
@@ -129,7 +121,7 @@
    2. ADVANCED DROPDOWN ANIMATIONS
 ======================================== */
 
-/* Enhanced Dropdown Base */
+/* Simplified Dropdown Base (no animations) */
 .has-dropdown {
     position: relative;
 }
@@ -140,38 +132,26 @@
     left: 0;
     min-width: 220px;
     background: white;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 12px 0;
     box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.1),
-        0 4px 15px rgba(0, 0, 0, 0.08);
+        0 4px 20px rgba(0, 0, 0, 0.1),
+        0 2px 10px rgba(0, 0, 0, 0.05);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-15px) rotateX(-15deg) scale(0.95);
-    transform-origin: top center;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dropdown-submenu.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0) rotateX(0) scale(1);
 }
 
-/* Dropdown Items dengan Stagger Animation */
+/* Simplified Dropdown Items */
 .dropdown-submenu li {
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: all 0.3s ease;
-    transition-delay: calc(var(--item-index, 0) * 0.05s);
-}
-
-.dropdown-submenu.active li {
     opacity: 1;
     transform: translateX(0);
+    transition: all 0.2s ease;
 }
 
 .dropdown-submenu a {
@@ -258,12 +238,9 @@
    3. ENHANCED CERTIFICATE GALLERY
 ======================================== */
 
-/* Certificate Gallery Container */
+/* Certificate Gallery Container (simplified) */
 .certificates-enhanced {
     position: relative;
-    overflow: hidden;
-    border-radius: 16px;
-    background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
     padding: 30px;
     margin: 40px 0;
 }
@@ -276,88 +253,29 @@
     margin-top: 30px;
 }
 
-/* Individual Certificate Item */
+/* Individual Certificate Item (no animations) */
 .certificate-item-enhanced {
     position: relative;
-    overflow: hidden;
-    border-radius: 16px;
+    border-radius: 8px;
     background: white;
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.08),
-        0 2px 10px rgba(0, 0, 0, 0.04);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transform: translateZ(0); /* Hardware acceleration */
 }
 
 .certificate-item-enhanced:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.15),
-        0 8px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Certificate Image */
+/* Certificate Image (no animations) */
 .certificate-item-enhanced img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    transition: all 0.4s ease;
 }
 
-.certificate-item-enhanced:hover img {
-    transform: scale(1.05);
-}
-
-/* Certificate Overlay */
+/* Certificate Overlay (disabled) */
 .certificate-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(110, 193, 228, 0.9) 0%,
-        rgba(245, 130, 32, 0.9) 100%
-    );
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.4s ease;
-    backdrop-filter: blur(5px);
-}
-
-.certificate-item-enhanced:hover .certificate-overlay {
-    opacity: 1;
-}
-
-.certificate-overlay-content {
-    text-align: center;
-    color: white;
-    transform: translateY(20px);
-    transition: transform 0.4s ease 0.1s;
-}
-
-.certificate-item-enhanced:hover .certificate-overlay-content {
-    transform: translateY(0);
-}
-
-.certificate-overlay-icon {
-    font-size: 48px;
-    margin-bottom: 10px;
-    animation: float 2s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.certificate-overlay-text {
-    font-size: 18px;
-    font-weight: 600;
+    display: none;
 }
 
 /* Certificate Lightbox Enhanced */
@@ -611,7 +529,7 @@
     transition: transform 0.1s ease-out;
 }
 
-/* Scroll Progress Indicator */
+/* Scroll Progress Indicator (disabled by default) */
 .scroll-progress {
     position: fixed;
     top: 0;
@@ -625,6 +543,7 @@
     );
     z-index: 1000;
     transition: width 0.1s ease-out;
+    display: none; /* Disabled by default */
 }
 
 /* Section Reveal Animations */
