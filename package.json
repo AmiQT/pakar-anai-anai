@@ -1,0 +1,22 @@
+{
+  "name": "kme-pest-control-website",
+  "version": "1.0.0",
+  "description": "KME Pest Control - Professional pest control services website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "pest-control",
+    "website",
+    "static",
+    "kme"
+  ],
+  "author": "KME Pest Control",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

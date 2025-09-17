@@ -1,0 +1,82 @@
+{
+  "version": 2,
+  
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/about",
+      "destination": "/pages/about.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/pages/services.html"
+    },
+    {
+      "source": "/products",
+      "destination": "/pages/products.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/pages/contact.html"
+    },
+    {
+      "source": "/booking",
+      "destination": "/pages/booking.html"
+    },
+    {
+      "source": "/testimoni",
+      "destination": "/pages/testimoni.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/pages/gallery.html"
+    },
+    {
+      "source": "/services/bat-prevention",
+      "destination": "/pages/services/bat-prevention.html"
+    },
+    {
+      "source": "/services/corrective-treatment",
+      "destination": "/pages/services/corrective-treatment.html"
+    },
+    {
+      "source": "/services/soil-treatment",
+      "destination": "/pages/services/soil-treatment.html"
+    }
+  ]
+}

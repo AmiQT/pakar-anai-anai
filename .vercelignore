@@ -1,0 +1,27 @@
+# Exclude development assets and backups
+agents/
+development/
+
+# Large backups and database dumps
+**/*.wpress
+**/*.sql
+**/*.zip
+**/*.tar
+**/*.tar.gz
+**/*.7z
+**/*.rar
+**/*.bak
+**/*.log
+
+# Local servers and tests
+server.js
+test-server.js
+development/test-runner.html
+
+# Docs and internal guides (not needed in deployment)
+development/docs/
+
+# Node modules if present
+node_modules/
+
+

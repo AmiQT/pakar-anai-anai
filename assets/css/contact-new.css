@@ -1,0 +1,496 @@
+/* ========================================
+   CONTACT PAGE (NEW DESIGN) STYLES
+======================================== */
+
+/* General Page Layout */
+.contact-page {
+    background-color: #f8f9fa;
+}
+
+.section-header-centered {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.section-header-centered h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 15px;
+}
+
+.section-header-centered p {
+    font-size: 1.1rem;
+    color: var(--medium-gray);
+    line-height: 1.6;
+}
+
+/* Section 1: Hero */
+.contact-hero-new {
+    background: linear-gradient(to right, var(--primary-blue), #3a7bd5);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-content-new {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    transform: translateZ(0);
+    color: white;
+    -webkit-text-fill-color: white; /* Override global style */
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-orange);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(239, 108, 0, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #e65100;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(239, 108, 0, 0.4);
+}
+
+/* Section 2: Contact Details */
+.contact-details-section {
+    padding: 80px 0;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.detail-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 35px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--primary-blue);
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background-color: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.card-link {
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-link:hover {
+    color: var(--primary-orange);
+}
+
+/* Section 3: Form & Map */
+.form-map-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.form-map-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form-new .form-group {
+    margin-bottom: 25px;
+}
+
+.contact-form-new label {
+    display: block;
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: 8px;
+}
+
+.contact-form-new input,
+.contact-form-new select,
+.contact-form-new textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form-new input:focus,
+.contact-form-new select:focus,
+.contact-form-new textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(50, 115, 220, 0.15);
+}
+
+.contact-form-new textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #2c5282;
+    transform: translateY(-2px);
+}
+
+.map-container {
+    height: 100%;
+    min-height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .form-map-grid {
+        grid-template-columns: 1fr;
+    }
+    .map-container {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .section-header-centered h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-hero-new,
+    .contact-details-section,
+    .form-map-section {
+        padding: 60px 0;
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .form-container {
+        padding: 30px;
+    }
+}
+
+/* ========================================
+   FAQ SECTION STYLES (Restored)
+======================================== */
+.faq-section-modern {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.faq-list-simple {
+    max-width: 850px;
+    margin: 50px auto 0;
+}
+
+.faq-item-modern {
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item-modern:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.faq-question-modern {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question-modern:hover {
+    background-color: #f8f9fa;
+}
+
+.question-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.question-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: var(--primary-blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.question-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin: 0;
+}
+
+.faq-toggle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-toggle i {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    transition: transform 0.3s ease;
+}
+
+.faq-item-modern.active .faq-toggle {
+    background-color: var(--primary-blue);
+}
+
+.faq-item-modern.active .faq-toggle i {
+    color: white;
+    transform: rotate(45deg);
+}
+
+.faq-answer-modern {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.faq-item-modern.active .faq-answer-modern {
+    max-height: 1000px; /* Adjust as needed */
+}
+
+.answer-content {
+    padding: 0 25px 25px;
+    color: var(--medium-gray);
+    line-height: 1.7;
+    border-top: 1px solid #e9ecef;
+    margin: 0 25px;
+}
+
+.answer-content p {
+    margin-top: 20px;
+}
+
+.service-times, .coverage-areas, .quote-methods, .warranty-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.service-time, .quote-method, .coverage-state, .warranty-item {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.service-time i, .quote-method i, .coverage-state h4 i, .warranty-item .warranty-badge {
+    color: var(--primary-blue);
+    flex-shrink: 0;
+}
+
+.coverage-state h4, .warranty-item div {
+    margin: 0;
+    flex-grow: 1;
+}
+.coverage-state h4 {
+    color: var(--primary-blue);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+.coverage-state p, .warranty-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.safety-assurance {
+    background-color: rgba(72, 187, 120, 0.08);
+    border-left: 4px solid #48bb78;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+.safety-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #48bb78;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.warranty-badge {
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: white;
+    text-align: center;
+    min-width: 60px;
+}
+.warranty-badge.premium { background-color: #667eea; }
+.warranty-badge.standard { background-color: #48bb78; }
+.warranty-badge.basic { background-color: #ed8936; }
+.warranty-badge.monthly { background-color: #4299e1; }
+
+
+.faq-cta {
+    background: linear-gradient(to right, var(--primary-blue), #3a7bd5);
+    margin-top: 50px;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+}
+.faq-cta h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.faq-cta p {
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+.faq-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.faq-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.faq-btn.whatsapp {
+    background-color: #25D366;
+    color: white;
+}
+.faq-btn.whatsapp:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+}
+.faq-btn.phone {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.faq-btn.phone:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}

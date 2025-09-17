@@ -1,0 +1,6 @@
+﻿development/database/
+.playwright-mcp/
+*.wpress
+*.sql
+.DS_Store
+Thumbs.db
