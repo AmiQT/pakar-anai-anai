@@ -14,11 +14,45 @@
     <link rel="manifest" href="../assets/images/favicon/site.webmanifest">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="../assets/css/main.css?v=5.0">
-    <link rel="stylesheet" href="../assets/css/shopping-cart.css">
-    
+    <link rel="stylesheet" href="../assets/css/main.css?v=6.0">
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Why-Choose stats alignment hotfix (scoped) */
+        .why-choose-products .stat-row { display:flex !important; align-items:flex-end !important; justify-content:center !important; gap:4px !important; }
+        .why-choose-products .stat-number { display:inline-block !important; line-height:.9 !important; font-weight:900 !important; color:#f97316 !important; }
+        .why-choose-products .stat-suffix { display:inline-block !important; line-height:.9 !important; margin-left:3px !important; font-weight:700 !important; color:#f97316 !important; }
+        .why-choose-products .stat-label { margin-top:0 !important; }
+        /*(Add to Cart） */
+        .add-to-cart-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            padding: 10px 18px !important;
+            background: linear-gradient(135deg, #10b981, #059669) !important;
+            color: #fff !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+            box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3) !important;
+            -webkit-appearance: none !important;
+            appearance: none !important;
+        }
+        .add-to-cart-btn:hover {
+            background: linear-gradient(135deg, #059669, #047857) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4) !important;
+        }
+        .add-to-cart-btn:active {
+            transform: translateY(0) !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -30,7 +64,7 @@
                 <div class="header-left-group">
                     <div class="header-logo">
                         <a href="../index.html">
-                            <img src="../assets/images/home/kme-logo-softcopy-03.png" alt="KME Pest Control Logo" class="header-logo-img">
+                            <img src="../assets/images/home/kme-logo-softcopy-03.webp" alt="KME Pest Control Logo" class="header-logo-img">
                         </a>
                     </div>
                     
@@ -64,7 +98,7 @@
             <div class="container">
                 <div class="nav-logo">
                     <a href="../index.html">
-                        <img src="../assets/images/home/kme-logo-softcopy-03.png" alt="KME Pest Control Logo" class="logo-img">
+                        <img src="../assets/images/home/kme-logo-softcopy-03.webp" alt="KME Pest Control Logo" class="logo-img">
                     </a>
                 </div>
                 
@@ -73,7 +107,7 @@
                         <a href="../index.html" class="nav-link">HOME</a>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="about.html" class="nav-link">
+                        <a href="javascript:void(0);" class="nav-link">
                             ABOUT US <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-submenu">
@@ -83,7 +117,7 @@
                         </ul>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="services.html" class="nav-link">
+                        <a href="javascript:void(0);" class="nav-link">
                             SERVICES <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-submenu">
@@ -100,8 +134,7 @@
                         <a href="contact.html" class="nav-link">CONTACT</a>
                     </li>
                 </ul>
-                
-                
+
                 <!-- Mobile Menu Toggle -->
                 <div class="mobile-menu-toggle" id="mobile-toggle">
                     <span></span>
@@ -144,14 +177,6 @@
                         <i class="fas fa-home"></i>
                         <span>Kegunaan Rumah</span>
                     </button>
-                    <button class="filter-tab" data-category="commercial">
-                        <i class="fas fa-building"></i>
-                        <span>Komersial</span>
-                    </button>
-                    <button class="filter-tab" data-category="eco">
-                        <i class="fas fa-leaf"></i>
-                        <span>Eco-Friendly</span>
-                    </button>
                 </div>
             </div>
         </section>
@@ -161,18 +186,18 @@
             <div class="container">
 
                 <div class="products-grid">
-                    <!-- Product 1 - Featured Home Use -->
+                    <!-- CICAK CLIZ -->
                     <div class="product-card featured" data-category="home">
                         <div class="product-image">
-                            <img src="../assets/images/image-placeholder.svg" alt="Pest Kill Product" loading="lazy">
+                            <img src="../assets/images/product/CLIZ-KME-removebg-preview.webp" alt="Cicak CLIZ - Lizard Repellent" loading="lazy">
                             <div class="product-badges">
                                 <span class="badge-featured">Bestseller</span>
-                                <span class="badge-category">Home Use</span>
+                                <span class="badge-category">Lizard Repellent</span>
                             </div>
                         </div>
                         <div class="product-content">
                             <div class="product-header">
-                                <h3>Pest Kill Premium</h3>
+                                <h3>Cicak CLIZ</h3>
                                 <div class="product-rating">
                                     <div class="stars">
                                         <i class="fas fa-star"></i>
@@ -181,176 +206,56 @@
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                     </div>
-                                    <span class="rating-text">(4.9/5)</span>
                                 </div>
                             </div>
                             <p class="product-category">
-                                <i class="fas fa-home"></i> 
-                                Anai-anai Treatment untuk Rumah
+                                <i class="fas fa-spray-can"></i>
+                                Repellent cicak (bukan racun)
                             </p>
-                            <p class="product-description">Produk kawalan anai-anai yang berkesan untuk perlindungan jangka panjang struktur bangunan rumah anda. Formula advanced yang selamat untuk keluarga.</p>
+                            <p class="product-description">Pilihan untuk kawal cicak di rumah menggunakan repellent khas dari KME. Selamat dan mudah digunakan setiap hari.</p>
                             <div class="product-features">
                                 <div class="feature-item">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Formula terbukti berkesan</span>
+                                    <i class="fas fa-tag"></i>
+                                    <span>Harga: RM59.90 sebotol</span>
                                 </div>
                                 <div class="feature-item">
-                                    <i class="fas fa-baby"></i>
-                                    <span>Selamat untuk keluarga</span>
+                                    <i class="fas fa-gift"></i>
+                                    <span>Promo: Beli 3 Percuma 1 | Beli 6 Percuma 2</span>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-clock"></i>
-                                    <span>Perlindungan 3-5 tahun</span>
+                                    <span>Kekerapan: Setiap hari</span>
                                 </div>
                             </div>
                             <div class="product-specs">
                                 <div class="spec-item">
-                                    <span class="spec-label">Coverage:</span>
-                                    <span class="spec-value">1000-2000 sqft</span>
+                                    <span class="spec-label">Jenis Produk:</span>
+                                    <span class="spec-value">Lizard Repellent</span>
                                 </div>
                                 <div class="spec-item">
-                                    <span class="spec-label">Application:</span>
-                                    <span class="spec-value">Professional</span>
+                                    <span class="spec-label">Cara Guna:</span>
+                                    <span class="spec-value">Goncang, kemudian spray secara terus tanpa putus di kawasan sasaran</span>
                                 </div>
                             </div>
                             <div class="product-actions">
-                                <button class="add-to-cart-btn" data-product="pest-kill-premium" data-name="Pest Kill Premium" data-category="Home Use">
+                                <button class="add-to-cart-btn" data-product="cliz" data-name="Cicak CLIZ" data-category="Repellent">
                                     <i class="fas fa-cart-plus"></i> Add to Cart
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Product 2 - Commercial Grade -->
-                    <div class="product-card" data-category="commercial">
-                        <div class="product-image">
-                            <img src="../assets/images/image-placeholder.svg" alt="Commercial Pest Solution" loading="lazy">
-                            <div class="product-badges">
-                                <span class="badge-category commercial">Commercial</span>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="product-header">
-                                <h3>Commercial Pest Pro</h3>
-                                <div class="product-rating">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="rating-text">(4.8/5)</span>
-                                </div>
-                            </div>
-                            <p class="product-category">
-                                <i class="fas fa-building"></i> 
-                                Penyelesaian untuk Premis Komersial
-                            </p>
-                            <p class="product-description">Penyelesaian kawalan serangga khusus untuk premis komersial dan industri besar. Formula industrial-strength untuk hasil maksimum.</p>
-                            <div class="product-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-industry"></i>
-                                    <span>Gred komersial</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-user-tie"></i>
-                                    <span>Aplikasi profesional</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-bolt"></i>
-                                    <span>Kesan segera</span>
-                                </div>
-                            </div>
-                            <div class="product-specs">
-                                <div class="spec-item">
-                                    <span class="spec-label">Coverage:</span>
-                                    <span class="spec-value">5000+ sqft</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Type:</span>
-                                    <span class="spec-value">Industrial Grade</span>
-                                </div>
-                            </div>
-                            <div class="product-actions">
-                                <button class="add-to-cart-btn" data-product="commercial-pest-pro" data-name="Commercial Pest Pro" data-category="Commercial">
-                                    <i class="fas fa-cart-plus"></i> Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 - Home Protection Kit -->
+                    <!-- PESTKILL -->
                     <div class="product-card" data-category="home">
                         <div class="product-image">
-                            <img src="../assets/images/image-placeholder.svg" alt="Residential Protection" loading="lazy">
+                            <img src="../assets/images/product/PestKill-PNG-kme.webp" alt="PESTKILL - Insecticide Concentrate" loading="lazy">
                             <div class="product-badges">
-                                <span class="badge-category home">Home Kit</span>
+                                <span class="badge-category home">Home Use</span>
                             </div>
                         </div>
                         <div class="product-content">
                             <div class="product-header">
-                                <h3>Home Protection Kit</h3>
-                                <div class="product-rating">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <span class="rating-text">(4.6/5)</span>
-                                </div>
-                            </div>
-                            <p class="product-category">
-                                <i class="fas fa-home"></i> 
-                                Kit Lengkap untuk Rumah
-                            </p>
-                            <p class="product-description">Kit lengkap perlindungan rumah dari pelbagai jenis serangga perosak. Termasuk produk untuk pencegahan dan rawatan segera.</p>
-                            <div class="product-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-box-open"></i>
-                                    <span>Kit lengkap 5-in-1</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-user-check"></i>
-                                    <span>Mudah digunakan sendiri</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-heart"></i>
-                                    <span>Selamat untuk keluarga</span>
-                                </div>
-                            </div>
-                            <div class="product-specs">
-                                <div class="spec-item">
-                                    <span class="spec-label">Kit Include:</span>
-                                    <span class="spec-value">5 Products</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Duration:</span>
-                                    <span class="spec-value">6-12 months</span>
-                                </div>
-                            </div>
-                            <div class="product-actions">
-                                <button class="add-to-cart-btn" data-product="home-protection-kit" data-name="Home Protection Kit" data-category="Home Use">
-                                    <i class="fas fa-cart-plus"></i> Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 - Eco-Friendly Solution -->
-                    <div class="product-card" data-category="eco">
-                        <div class="product-image">
-                            <img src="../assets/images/image-placeholder.svg" alt="Eco Friendly Solution" loading="lazy">
-                            <div class="product-badges">
-                                <span class="badge-category eco">Eco-Friendly</span>
-                                <span class="badge-new">New</span>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="product-header">
-                                <h3>Green Pest Solution</h3>
+                                <h3>PESTKILL</h3>
                                 <div class="product-rating">
                                     <div class="stars">
                                         <i class="fas fa-star"></i>
@@ -359,40 +264,39 @@
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                     </div>
-                                    <span class="rating-text">(4.7/5)</span>
                                 </div>
                             </div>
                             <p class="product-category">
-                                <i class="fas fa-leaf"></i> 
-                                Teknologi Hijau Terkini
+                                <i class="fas fa-bug"></i>
+                                Racun serangga (Semut, Lipas, Kutu, Pepijat, Lalat & Kupu-kupu)
                             </p>
-                            <p class="product-description">Penyelesaian ramah alam untuk kawalan serangga tanpa memudaratkan persekitaran. Formula organik yang berkesan dan selamat.</p>
+                            <p class="product-description">Konsentrat serbaguna untuk kawalan serangga di rumah. Mudah disediakan dan berkesan.</p>
                             <div class="product-features">
                                 <div class="feature-item">
-                                    <i class="fas fa-seedling"></i>
-                                    <span>100% organik</span>
+                                    <i class="fas fa-tag"></i>
+                                    <span>Harga: RM49.90 sebotol</span>
                                 </div>
                                 <div class="feature-item">
-                                    <i class="fas fa-ban"></i>
-                                    <span>Tidak beracun</span>
+                                    <i class="fas fa-gift"></i>
+                                    <span>Promo: Beli 3 Percuma 1 | Beli 6 Percuma 2</span>
                                 </div>
                                 <div class="feature-item">
-                                    <i class="fas fa-recycle"></i>
-                                    <span>Biodegradable</span>
+                                    <i class="fas fa-flask"></i>
+                                    <span>Bahan aktif: polyalkyleneoxide, modified heptamethyltriloxane</span>
                                 </div>
                             </div>
                             <div class="product-specs">
                                 <div class="spec-item">
-                                    <span class="spec-label">Certification:</span>
-                                    <span class="spec-value">Organic</span>
+                                    <span class="spec-label">Cara Sedia:</span>
+                                    <span class="spec-value">Masukkan 1 tube chemical ke botol, tambah 500ml air, goncang</span>
                                 </div>
                                 <div class="spec-item">
-                                    <span class="spec-label">Safe for:</span>
-                                    <span class="spec-value">Kids & Pets</span>
+                                    <span class="spec-label">Sesuai Untuk:</span>
+                                    <span class="spec-value">Semut, Lipas, Kutu, Pepijat, Lalat, Kupu-kupu</span>
                                 </div>
                             </div>
                             <div class="product-actions">
-                                <button class="add-to-cart-btn" data-product="green-pest-solution" data-name="Green Pest Solution" data-category="Eco-Friendly">
+                                <button class="add-to-cart-btn" data-product="pestkill" data-name="PESTKILL" data-category="Insecticide">
                                     <i class="fas fa-cart-plus"></i> Add to Cart
                                 </button>
                             </div>
@@ -401,7 +305,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- Why Choose Our Products -->
         <section class="why-choose-products">
@@ -412,45 +315,53 @@
                 </div>
                 
                 <div class="features-grid">
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-item" data-scroll-animation="fade-up" data-scroll-delay="100">
                         <div class="feature-content">
                             <h3>Terbukti Berkesan</h3>
                             <p>Formula yang telah diuji dan terbukti berkesan dalam mengatasi pelbagai jenis serangga perosak dengan kadar kejayaan 99.5%.</p>
                             <div class="feature-stats">
-                                <span class="stat-number">99.5%</span>
+                                <div class="stat-row">
+                                    <span class="stat-number" data-target="99.5">99.5</span><span class="stat-suffix">%</span>
+                                </div>
                                 <span class="stat-label">Success Rate</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-item" data-scroll-animation="fade-up" data-scroll-delay="200">
                         <div class="feature-content">
                             <h3>Selamat & Eco-Friendly</h3>
                             <p>Produk yang selamat untuk keluarga dan haiwan peliharaan, serta mesra alam dengan certifikasi organik.</p>
                             <div class="feature-stats">
-                                <span class="stat-number">100%</span>
+                                <div class="stat-row">
+                                    <span class="stat-number" data-target="100">100</span><span class="stat-suffix">%</span>
+                                </div>
                                 <span class="stat-label">Safe Formula</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-item" data-scroll-animation="fade-up" data-scroll-delay="300">
                         <div class="feature-content">
                             <h3>Perlindungan Jangka Panjang</h3>
                             <p>Memberikan perlindungan yang tahan lama untuk mengelakkan masalah berulang dengan warranty hingga 7 tahun.</p>
                             <div class="feature-stats">
-                                <span class="stat-number">7</span>
+                                <div class="stat-row">
+                                    <span class="stat-number" data-target="7">7</span>
+                                </div>
                                 <span class="stat-label">Years Warranty</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-item" data-scroll-animation="fade-up" data-scroll-delay="400">
                         <div class="feature-content">
                             <h3>Aplikasi Profesional</h3>
                             <p>Digunakan oleh profesional berpengalaman dengan latihan khusus untuk hasil yang optimum.</p>
                             <div class="feature-stats">
-                                <span class="stat-number">15+</span>
+                                <div class="stat-row">
+                                    <span class="stat-number" data-target="15">15</span><span class="stat-suffix">+</span>
+                                </div>
                                 <span class="stat-label">Years Experience</span>
                             </div>
                         </div>
@@ -582,10 +493,11 @@
 
     <!-- Footer will be loaded by footer component -->
 
-    
-
     <!-- JavaScript Files -->
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/animations-phase1.js"></script>
+    <script src="../assets/js/animations-phase2.js"></script>
+    <script src="../assets/js/animations-phase3.js"></script>
     <script src="../assets/js/shopping-cart.js"></script>
     <script src="../assets/js/components/footer.js"></script>
     

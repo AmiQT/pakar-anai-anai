@@ -1,0 +1,409 @@
+/* ========================================
+   KME Pest Control - About Page Styles
+   Page Layer: About page-specific components
+======================================== */
+
+/* ========================================
+   ABOUT HERO SECTION
+======================================== */
+.about-hero {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--button-blue) 100%);
+    color: var(--white);
+    padding: 100px 0 60px;
+    text-align: center;
+    position: relative;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.about-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   ABOUT CONTENT SECTIONS
+======================================== */
+.about-section {
+    padding: 80px 0;
+}
+
+.about-section.light {
+    background: var(--gray-50);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-content.reverse {
+    direction: rtl;
+}
+
+.about-content.reverse > * {
+    direction: ltr;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: var(--gray-900);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   FOUNDER SECTION
+======================================== */
+.founder-section {
+    background: var(--white);
+    padding: 80px 0;
+}
+
+.founder-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.founder-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto 40px;
+    overflow: hidden;
+    border: 5px solid var(--primary-blue);
+}
+
+.founder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.founder-content h2 {
+    font-size: 2rem;
+    color: var(--gray-900);
+    margin-bottom: 15px;
+}
+
+.founder-title {
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.founder-content p {
+    font-size: 1.1rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   CERTIFICATIONS & AWARDS SECTION
+======================================== */
+.certifications-section {
+    padding: 80px 0;
+    background: var(--gray-50);
+}
+
+.certifications-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.certifications-header h2 {
+    font-size: 2.5rem;
+    color: var(--gray-900);
+    margin-bottom: 20px;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.certification-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius-xl);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-medium);
+    border: 2px solid transparent;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-blue);
+}
+
+.certification-logo {
+    width: 120px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certification-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.certification-card h3 {
+    font-size: 1.2rem;
+    color: var(--gray-900);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.certification-card p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+}
+
+/* ========================================
+   COMPANY VALUES SECTION
+======================================== */
+.values-section {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.values-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.value-card {
+    text-align: center;
+    padding: 40px 30px;
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--button-blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    box-shadow: var(--shadow-md);
+}
+
+.value-icon i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.value-card h3 {
+    font-size: 1.5rem;
+    color: var(--gray-900);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.value-card p {
+    color: var(--gray-600);
+    line-height: 1.6;
+}
+
+/* ========================================
+   TEAM SECTION
+======================================== */
+.team-section {
+    padding: 80px 0;
+    background: var(--gray-50);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-medium);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 3px solid var(--primary-blue);
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member h3 {
+    font-size: 1.3rem;
+    color: var(--gray-900);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.team-role {
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.team-member p {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+}
+
+/* ========================================
+   RESPONSIVE ABOUT PAGE
+======================================== */
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 80px 0 50px;
+    }
+    
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .about-hero p {
+        font-size: 1.1rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .about-content.reverse {
+        direction: ltr;
+    }
+    
+    .about-text h2 {
+        font-size: 2rem;
+    }
+    
+    .about-image img {
+        height: 300px;
+    }
+    
+    .certifications-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    
+    .founder-image {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 60px 0;
+    }
+    
+    .certifications-section,
+    .values-section,
+    .team-section {
+        padding: 60px 0;
+    }
+    
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .certifications-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

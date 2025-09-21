@@ -429,7 +429,7 @@
                 logResult('form-results', '✅ Form fields validation - Working', 'success');
                 logResult('form-results', '✅ Required field checks - Working', 'success');
                 logResult('form-results', '✅ Email validation - Working', 'success');
-                logResult('form-results', '⚠️ Form submission - Requires WordPress backend', 'warning');
+                logResult('form-results', '⚠️ Form submission - Backend disabled (simulated only)', 'warning');
             }, 1000);
         }
 
@@ -453,16 +453,15 @@
         function testAPIConnection() {
             logResult('form-results', 'Testing API connection...', 'info');
             
-            // Test WordPress API endpoints
+            // Test placeholder API endpoints (none active)
             const apiEndpoints = [
-                '/wp-json/wp/v2/pages',
-                '/wp-json/wp/v2/posts',
-                '/wp-json/kme/v1/site-settings'
+                '/api/health',
+                '/api/ping'
             ];
             
             apiEndpoints.forEach((endpoint, index) => {
                 setTimeout(() => {
-                    logResult('form-results', `⚠️ ${endpoint} - Requires WordPress backend`, 'warning');
+                    logResult('form-results', `ℹ️ ${endpoint} - No backend (info)`, 'info');
                 }, (index + 1) * 500);
             });
         }

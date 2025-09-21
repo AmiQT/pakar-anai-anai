@@ -1017,7 +1017,7 @@ class Phase2Animations {
             // Initialize all Phase 2 animation components
             this.pageTransitions = new PageTransitions();
             this.advancedDropdowns = new AdvancedDropdowns();
-            this.enhancedCertificateGallery = new EnhancedCertificateGallery();
+            
             this.advancedLoadingStates = new AdvancedLoadingStates();
             this.scrollTriggeredAnimations = new ScrollTriggeredAnimations();
             this.microInteractions = new MicroInteractions();

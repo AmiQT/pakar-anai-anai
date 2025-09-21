@@ -136,13 +136,13 @@ class FooterComponent {
         
         switch (currentPath) {
             case 'root':
-                return 'assets/images/home/kme-logo-softcopy-03.png';
+                return 'assets/images/home/kme-logo-softcopy-03.webp';
             case 'pages':
-                return '../assets/images/home/kme-logo-softcopy-03.png';
+                return '../assets/images/home/kme-logo-softcopy-03.webp';
             case 'services':
-                return '../../assets/images/home/kme-logo-softcopy-03.png';
+                return '../../assets/images/home/kme-logo-softcopy-03.webp';
             default:
-                return 'assets/images/home/kme-logo-softcopy-03.png';
+                return 'assets/images/home/kme-logo-softcopy-03.webp';
         }
     }
 

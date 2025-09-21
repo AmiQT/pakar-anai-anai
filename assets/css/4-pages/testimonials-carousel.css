@@ -1,0 +1,400 @@
+/* ======================================
+   Testimonial Carousel Styles
+   ====================================== */
+
+/* Container styles */
+.testimonials-carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+/* Side Navigation Buttons */
+.side-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.side-nav-btn.prev {
+    left: 0px;
+}
+
+.side-nav-btn.next {
+    right: 0px;
+}
+
+.side-nav-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.side-nav-btn:active {
+    transform: translateY(-50%) scale(1);
+}
+
+@media (max-width: 1200px) {
+    .side-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .side-nav-btn.prev {
+        left: -20px;
+    }
+    
+    .side-nav-btn.next {
+        right: -20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .side-nav-btn {
+        display: none;
+    }
+}
+
+/* Carousel styles */
+.testimonials-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Card styles with enhanced design */
+.testimonial-card {
+    flex: 0 0 100%;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.testimonial-card.featured {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Quote icon styling */
+.testimonial-card .quote-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    opacity: 0.1;
+    color: var(--primary-blue);
+}
+
+/* Header styling */
+.testimonial-card .testimonial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Customer info styling */
+.testimonial-card .customer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.testimonial-card .customer-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--primary-blue);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card .customer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-card .customer-details h3 {
+    margin: 0 0 5px;
+    font-size: 1.2rem;
+    color: var(--black);
+}
+
+.testimonial-card .customer-details p {
+    margin: 0 0 8px;
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+/* Service type styling */
+.testimonial-card .service-type {
+    background: var(--light-gray);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.testimonial-card .service-type span {
+    color: var(--primary-blue);
+}
+
+/* Star rating animation */
+.testimonial-card .rating {
+    display: flex;
+    gap: 3px;
+}
+
+.testimonial-card .rating i {
+    color: #FFD700;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: star-appear 0.5s forwards;
+}
+
+.testimonial-card .rating i:nth-child(1) { animation-delay: 0.1s; }
+.testimonial-card .rating i:nth-child(2) { animation-delay: 0.2s; }
+.testimonial-card .rating i:nth-child(3) { animation-delay: 0.3s; }
+.testimonial-card .rating i:nth-child(4) { animation-delay: 0.4s; }
+.testimonial-card .rating i:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes star-appear {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Content styling */
+.testimonial-card .testimonial-content {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-card .testimonial-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--black);
+    margin: 0;
+}
+
+/* Footer styling */
+.testimonial-card .testimonial-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.testimonial-card .date {
+    color: var(--gray);
+    font-size: 0.85rem;
+}
+
+.testimonial-card .verified {
+    color: var(--success-green);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Carousel navigation */
+.carousel-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.carousel-btn {
+    background: white;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.carousel-btn:active {
+    transform: translateY(0);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Dots navigation */
+.carousel-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--light-gray);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--primary-blue);
+    transform: scale(1.2);
+}
+
+/* Hover effects */
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card.featured:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+    .testimonial-card {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .testimonial-card {
+        flex: 0 0 calc(33.333% - 14px);
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-navigation {
+        padding: 0 20px;
+    }
+    
+    .testimonial-card {
+        padding: 20px;
+        margin: 0 10px;
+        flex: 0 0 calc(100% - 20px);
+    }
+    
+    .testimonial-card .customer-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .testimonial-card .customer-details h3 {
+        font-size: 1rem;
+    }
+    
+    .testimonials-carousel-container {
+        padding: 10px 0;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+    
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .testimonial-card .quote-icon {
+        font-size: 1.5rem;
+    }
+    
+    .testimonial-card .testimonial-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .testimonial-card .service-type {
+        align-self: flex-start;
+    }
+    
+    .testimonial-card .testimonial-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Touch-friendly styles for mobile */
+@media (max-width: 480px) {
+    .testimonial-card {
+        padding: 15px;
+    }
+    
+    .testimonial-card .customer-info {
+        gap: 10px;
+    }
+    
+    .testimonial-card .customer-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .testimonial-card .testimonial-content p {
+        font-size: 0.85rem;
+    }
+    
+    .testimonial-card .testimonial-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    /* Improve touch targets */
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+    }
+}

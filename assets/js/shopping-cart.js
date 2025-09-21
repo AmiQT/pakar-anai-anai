@@ -18,7 +18,43 @@ class ShoppingCart {
         this.cartClose = document.getElementById('cartClose');
         this.checkoutBtn = document.getElementById('checkoutBtn');
         
+        // Ensure floating cart element exists
+        if (!this.floatingCart) {
+            console.warn('⚠️ Floating cart element not found');
+        }
+        
         this.init();
+        
+        // Force cart button positioning immediately after initialization
+        this.forceCartPosition();
+    }
+    
+    forceCartPosition() {
+        // Aggressive cart positioning to ensure it's truly floating
+        if (this.floatingCart) {
+            const styles = {
+                position: 'fixed',
+                bottom: '30px',
+                right: '30px',
+                zIndex: '99999',
+                display: 'flex',
+                visibility: 'visible',
+                opacity: '1',
+                pointerEvents: 'auto',
+                transform: 'translateZ(0)',
+                width: '65px',
+                height: '65px'
+            };
+            
+            Object.assign(this.floatingCart.style, styles);
+            
+            // Also set via setAttribute for extra insurance
+            this.floatingCart.setAttribute('style', 
+                Object.entries(styles)
+                    .map(([key, value]) => `${key.replace(/([A-Z])/g, '-$1').toLowerCase()}: ${value} !important`)
+                    .join('; ')
+            );
+        }
     }
     
     init() {
@@ -26,6 +62,11 @@ class ShoppingCart {
         this.bindEvents();
         this.updateCartUI();
         this.initAddToCartButtons();
+        
+        // Re-force positioning after DOM is fully ready
+        setTimeout(() => {
+            this.forceCartPosition();
+        }, 100);
     }
     
     bindEvents() {
@@ -76,6 +117,13 @@ class ShoppingCart {
         this.saveCartToStorage();
         this.updateCartUI();
         this.showCartNotification(`${product.name} added to cart!`, 'success');
+        
+        // Auto-open cart after adding item (better UX)
+        setTimeout(() => {
+            if (!this.isOpen) {
+                this.openCart();
+            }
+        }, 800);
     }
     
     removeFromCart(productId) {
@@ -109,12 +157,24 @@ class ShoppingCart {
         if (this.cartCount) this.cartCount.textContent = totalItems;
         if (this.cartBadge) {
             this.cartBadge.textContent = totalItems;
-            this.cartBadge.style.display = totalItems > 0 ? 'flex' : 'none';
+            if (totalItems > 0) {
+                this.cartBadge.classList.add('visible');
+            } else {
+                this.cartBadge.classList.remove('visible');
+            }
         }
         
-        // Update floating cart visibility
+        // Force floating cart button to always be visible with aggressive positioning
         if (this.floatingCart) {
-            this.floatingCart.style.display = totalItems > 0 ? 'flex' : 'none';
+            this.floatingCart.style.display = 'flex';
+            this.floatingCart.style.visibility = 'visible';
+            this.floatingCart.style.opacity = '1';
+            this.floatingCart.style.pointerEvents = 'auto';
+            this.floatingCart.style.position = 'fixed';
+            this.floatingCart.style.zIndex = '99999';
+            this.floatingCart.style.bottom = '30px';
+            this.floatingCart.style.right = '30px';
+            this.floatingCart.style.transform = 'translateZ(0)';
         }
         
         // Render cart items
@@ -317,18 +377,56 @@ class ShoppingCart {
     }
     
     showAddToCartAnimation(button) {
-        // Add animation class
-        button.classList.add('added-to-cart');
+        const cartIcon = document.getElementById('floatingCart') || document.getElementById('cartBadge');
+        const productImg = button.closest('.product-card')?.querySelector('img');
         
-        // Change button text temporarily
-        const originalHTML = button.innerHTML;
-        button.innerHTML = '<i class="fas fa-check"></i> Added!';
+        // Fallback to simple pulse if we cannot find required elements
+        if (!cartIcon || !productImg) {
+            button.classList.add('added-to-cart');
+            const originalHTML = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i> Added!';
+            setTimeout(() => {
+                button.classList.remove('added-to-cart');
+                button.innerHTML = originalHTML;
+            }, 1200);
+            return;
+        }
         
-        // Reset after animation
+        // Clone product image and animate to cart icon position (fly-to-cart)
+        const rectStart = productImg.getBoundingClientRect();
+        const rectEnd = cartIcon.getBoundingClientRect();
+        const clone = productImg.cloneNode(true);
+        
+        Object.assign(clone.style, {
+            position: 'fixed',
+            left: rectStart.left + 'px',
+            top: rectStart.top + 'px',
+            width: rectStart.width + 'px',
+            height: rectStart.height + 'px',
+            borderRadius: '8px',
+            zIndex: 9999,
+            transition: 'transform 600ms cubic-bezier(0.22,1,0.36,1), opacity 600ms',
+            pointerEvents: 'none',
+            willChange: 'transform, opacity'
+        });
+        
+        document.body.appendChild(clone);
+        
+        // Trigger the transform on the next frame
+        requestAnimationFrame(() => {
+            const dx = rectEnd.left - rectStart.left;
+            const dy = rectEnd.top - rectStart.top;
+            const scale = Math.max(0.2, 40 / rectStart.width);
+            clone.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+            clone.style.opacity = '0.6';
+        });
+        
+        // Clean up and pop the badge
         setTimeout(() => {
-            button.classList.remove('added-to-cart');
-            button.innerHTML = originalHTML;
-        }, 1500);
+            if (clone && clone.parentNode) clone.parentNode.removeChild(clone);
+            cartIcon.classList.add('badge-pop');
+            setTimeout(() => cartIcon.classList.remove('badge-pop'), 300);
+        }, 650);
     }
     
     showCartNotification(message, type = 'info') {

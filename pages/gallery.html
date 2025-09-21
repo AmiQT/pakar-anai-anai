@@ -15,7 +15,7 @@
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="../assets/css/main.css?v=3.2">
-    
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -29,7 +29,7 @@
                 <div class="header-left-group">
                     <div class="header-logo">
                         <a href="../index.html">
-                            <img src="../assets/images/home/kme-logo-softcopy-03.png" alt="KME Pest Control Logo" class="header-logo-img">
+                            <img src="../assets/images/home/kme-logo-softcopy-03.webp" alt="KME Pest Control Logo" class="header-logo-img">
                         </a>
                     </div>
                     
@@ -63,7 +63,7 @@
             <div class="container">
                 <div class="nav-logo">
                     <a href="../index.html">
-                        <img src="../assets/images/home/kme-logo-softcopy-03.png" alt="KME Pest Control Logo" class="logo-img">
+                        <img src="../assets/images/home/kme-logo-softcopy-03.webp" alt="KME Pest Control Logo" class="logo-img">
                     </a>
                 </div>
                 
@@ -72,7 +72,7 @@
                         <a href="../index.html" class="nav-link">HOME</a>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="about.html" class="nav-link">
+                        <a href="javascript:void(0);" class="nav-link">
                             ABOUT US <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-submenu">
@@ -82,7 +82,7 @@
                         </ul>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="services.html" class="nav-link">
+                        <a href="javascript:void(0);" class="nav-link">
                             SERVICES <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-submenu">
@@ -142,21 +142,12 @@
         <!-- Gallery Grid -->
         <section class="gallery-grid-section" style="padding: 60px 0; margin-bottom: 40px;">
             <div class="container">
-                <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-grid" id="galleryGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto;">
                     
-                    <!-- Soil Treatment Projects -->
+                    <!-- Row 1 -->
                     <div class="gallery-item" data-category="soil-treatment residential">
                         <div class="gallery-image">
                             <img src="../assets/images/image-placeholder.svg" alt="Soil Treatment - Residential Project" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <h3>Soil Treatment</h3>
-                                    <p>Rawatan tanah untuk rumah banglo di Kuantan</p>
-                                    <button class="view-btn" data-project="soil-1">
-                                        <i class="fas fa-eye"></i> View Details
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="gallery-info">
                             <span class="project-type">Soil Treatment</span>
@@ -167,15 +158,6 @@
                     <div class="gallery-item" data-category="soil-treatment commercial">
                         <div class="gallery-image">
                             <img src="../assets/images/image-placeholder.svg" alt="Commercial Soil Treatment" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <h3>Commercial Project</h3>
-                                    <p>Rawatan tanah untuk kompleks pejabat 5 tingkat</p>
-                                    <button class="view-btn" data-project="soil-2">
-                                        <i class="fas fa-eye"></i> View Details
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="gallery-info">
                             <span class="project-type">Soil Treatment</span>
@@ -183,19 +165,9 @@
                         </div>
                     </div>
 
-                    <!-- Bat Prevention Projects -->
                     <div class="gallery-item" data-category="bat-prevention commercial">
                         <div class="gallery-image">
                             <img src="../assets/images/image-placeholder.svg" alt="Bat Prevention School Project" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <h3>School Bat Prevention</h3>
-                                    <p>Pencegahan kelawar di sekolah menengah</p>
-                                    <button class="view-btn" data-project="bat-1">
-                                        <i class="fas fa-eye"></i> View Details
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="gallery-info">
                             <span class="project-type">Bat Prevention</span>
@@ -206,15 +178,6 @@
                     <div class="gallery-item" data-category="bat-prevention residential">
                         <div class="gallery-image">
                             <img src="../assets/images/image-placeholder.svg" alt="Residential Bat Prevention" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <h3>Residential Solution</h3>
-                                    <p>Pencegahan kelawar untuk rumah teres</p>
-                                    <button class="view-btn" data-project="bat-2">
-                                        <i class="fas fa-eye"></i> View Details
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="gallery-info">
                             <span class="project-type">Bat Prevention</span>
@@ -222,19 +185,10 @@
                         </div>
                     </div>
 
-                    <!-- Corrective Treatment Projects -->
+                    <!-- Row 2 -->
                     <div class="gallery-item" data-category="corrective residential">
                         <div class="gallery-image">
                             <img src="../assets/images/image-placeholder.svg" alt="Corrective Treatment Residential" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <h3>Emergency Treatment</h3>
-                                    <p>Rawatan kecemasan untuk serangan anai-anai</p>
-                                    <button class="view-btn" data-project="corrective-1">
-                                        <i class="fas fa-eye"></i> View Details
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="gallery-info">
                             <span class="project-type">Corrective Treatment</span>
@@ -245,15 +199,6 @@
                     <div class="gallery-item" data-category="corrective commercial">
                         <div class="gallery-image">
                             <img src="../assets/images/image-placeholder.svg" alt="Commercial Corrective Treatment" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <h3>Warehouse Treatment</h3>
-                                    <p>Rawatan pembetulan untuk gudang besar</p>
-                                    <button class="view-btn" data-project="corrective-2">
-                                        <i class="fas fa-eye"></i> View Details
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="gallery-info">
                             <span class="project-type">Corrective Treatment</span>
@@ -261,19 +206,9 @@
                         </div>
                     </div>
 
-                    <!-- Before/After Comparisons -->
                     <div class="gallery-item" data-category="corrective residential">
                         <div class="gallery-image">
                             <img src="../assets/images/image-placeholder.svg" alt="Before After Comparison" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <h3>Before & After</h3>
-                                    <p>Pemulihan kerosakan struktur kayu</p>
-                                    <button class="view-btn" data-project="before-after-1">
-                                        <i class="fas fa-eye"></i> View Details
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="gallery-info">
                             <span class="project-type">Structural Repair</span>
@@ -284,15 +219,6 @@
                     <div class="gallery-item" data-category="soil-treatment commercial">
                         <div class="gallery-image">
                             <img src="../assets/images/image-placeholder.svg" alt="Professional Equipment" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <h3>Professional Equipment</h3>
-                                    <p>Peralatan injection untuk soil treatment</p>
-                                    <button class="view-btn" data-project="equipment-1">
-                                        <i class="fas fa-eye"></i> View Details
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="gallery-info">
                             <span class="project-type">Equipment</span>
@@ -300,22 +226,85 @@
                         </div>
                     </div>
 
+                    <!-- Row 3 -->
                     <div class="gallery-item" data-category="bat-prevention commercial">
                         <div class="gallery-image">
                             <img src="../assets/images/image-placeholder.svg" alt="Team at Work" loading="lazy">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <h3>Team in Action</h3>
-                                    <p>Pasukan profesional sedang bekerja</p>
-                                    <button class="view-btn" data-project="team-1">
-                                        <i class="fas fa-eye"></i> View Details
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <div class="gallery-info">
                             <span class="project-type">Team Work</span>
                             <span class="project-location">Various Locations</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="soil-treatment residential">
+                        <div class="gallery-image">
+                            <img src="../assets/images/image-placeholder.svg" alt="Soil Treatment Process" loading="lazy">
+                        </div>
+                        <div class="gallery-info">
+                            <span class="project-type">Soil Treatment</span>
+                            <span class="project-location">Pahang</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="corrective commercial">
+                        <div class="gallery-image">
+                            <img src="../assets/images/image-placeholder.svg" alt="Industrial Treatment" loading="lazy">
+                        </div>
+                        <div class="gallery-info">
+                            <span class="project-type">Industrial</span>
+                            <span class="project-location">Kuantan</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="bat-prevention residential">
+                        <div class="gallery-image">
+                            <img src="../assets/images/image-placeholder.svg" alt="Residential Protection" loading="lazy">
+                        </div>
+                        <div class="gallery-info">
+                            <span class="project-type">Protection</span>
+                            <span class="project-location">Terengganu</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div class="gallery-item" data-category="soil-treatment commercial">
+                        <div class="gallery-image">
+                            <img src="../assets/images/image-placeholder.svg" alt="Office Building Treatment" loading="lazy">
+                        </div>
+                        <div class="gallery-info">
+                            <span class="project-type">Office Building</span>
+                            <span class="project-location">Temerloh</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="corrective residential">
+                        <div class="gallery-image">
+                            <img src="../assets/images/image-placeholder.svg" alt="Emergency Response" loading="lazy">
+                        </div>
+                        <div class="gallery-info">
+                            <span class="project-type">Emergency</span>
+                            <span class="project-location">Pekan</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="bat-prevention commercial">
+                        <div class="gallery-image">
+                            <img src="../assets/images/image-placeholder.svg" alt="School Prevention" loading="lazy">
+                        </div>
+                        <div class="gallery-info">
+                            <span class="project-type">School</span>
+                            <span class="project-location">Kuantan</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="soil-treatment residential">
+                        <div class="gallery-image">
+                            <img src="../assets/images/image-placeholder.svg" alt="House Foundation" loading="lazy">
+                        </div>
+                        <div class="gallery-info">
+                            <span class="project-type">Foundation</span>
+                            <span class="project-location">Pahang</span>
                         </div>
                     </div>
 
@@ -330,90 +319,74 @@
             </div>
         </section>
 
-        <!-- Project Stats -->
-        <section class="project-stats" style="padding: 80px 0; margin-bottom: 40px;">
+
+        <!-- Video Testimonials -->
+        <section class="video-testimonials-section" style="padding: 80px 0; margin-bottom: 40px;">
             <div class="container">
                 <div class="section-header">
-                    <h2>Project Statistics</h2>
-                    <p>Ringkasan pencapaian kami sepanjang lebih 15 tahun beroperasi.</p>
+                    <h2>Video Testimoni Pelanggan</h2>
+                    <p>Dengar sendiri pengalaman pelanggan yang dah terbebas dari masalah anai-anai!</p>
                 </div>
 
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-home"></i>
+                <div class="video-testimonials-grid">
+                    <!-- Video Testimonial 1 - MR KEITH KHOO -->
+                    <div class="video-testimonial-card" data-scroll-animation="fade-up" data-scroll-stagger>
+                        <div class="facebook-video-container">
+                            <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffb.watch%2FC5Qs6WGNhU%2F&show_text=false&width=560&t=0" 
+                                    width="100%" 
+                                    height="314" 
+                                    style="border:none;overflow:hidden" 
+                                    scrolling="no" 
+                                    frameborder="0" 
+                                    allowfullscreen="true" 
+                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                            </iframe>
                         </div>
-                        <div class="stat-number">2,500+</div>
-                        <div class="stat-label">Residential Projects</div>
+                        <div class="video-info">
+                            <h3>MR KEITH KHOO</h3>
+                            <p class="testimonial-quote">"Testimoni pelanggan yang berpuas hati dengan servis KME Pest Control"</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
                     </div>
 
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-building"></i>
+                    <!-- Video Testimonial 2 - PUAN SUHANA -->
+                    <div class="video-testimonial-card" data-scroll-animation="fade-up" data-scroll-stagger>
+                        <div class="facebook-video-container">
+                            <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffacebook.com%2FKMEpestcontrol%2Fvideos%2F1271253497687338%2F&show_text=false&width=560&t=0" 
+                                    width="100%" 
+                                    height="314" 
+                                    style="border:none;overflow:hidden" 
+                                    scrolling="no" 
+                                    frameborder="0" 
+                                    allowfullscreen="true" 
+                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                            </iframe>
                         </div>
-                        <div class="stat-number">850+</div>
-                        <div class="stat-label">Commercial Projects</div>
+                        <div class="video-info">
+                            <h3>PUAN SUHANA</h3>
+                            <p class="testimonial-quote">"Pengalaman positif dengan servis profesional KME Pest Control"</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
                     </div>
 
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-percentage"></i>
+                    <!-- Video Testimonial 3 - PUAN FATIMAH -->
+                    <div class="video-testimonial-card" data-scroll-animation="fade-up" data-scroll-stagger>
+                        <div class="facebook-video-container">
+                            <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffacebook.com%2FKMEpestcontrol%2Fvideos%2F1063411679300948%2F&show_text=false&width=560&t=0" 
+                                    width="100%" 
+                                    height="314" 
+                                    style="border:none;overflow:hidden" 
+                                    scrolling="no" 
+                                    frameborder="0" 
+                                    allowfullscreen="true" 
+                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                            </iframe>
                         </div>
-                        <div class="stat-number">98.5%</div>
-                        <div class="stat-label">Success Rate</div>
-                    </div>
-
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-smile"></i>
+                        <div class="video-info">
+                            <h3>PUAN FATIMAH</h3>
+                            <p class="testimonial-quote">"Berpuas hati dengan hasil rawatan dan servis yang diberikan"</p>
+                            <div class="rating">★★★★★</div>
                         </div>
-                        <div class="stat-number">3,200+</div>
-                        <div class="stat-label">Happy Customers</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Video Gallery -->
-        <section class="video-gallery" style="padding: 80px 0; margin-bottom: 40px;">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Video Documentation</h2>
-                    <p>Tonton video dokumentasi proses kerja profesional kami.</p>
-                </div>
-
-                <div class="video-grid">
-                    <div class="video-item">
-                        <div class="video-thumbnail">
-                            <img src="../assets/images/image-placeholder.svg" alt="Soil Treatment Process Video" loading="lazy">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <h3>Soil Treatment Process</h3>
-                        <p>Complete documentation of soil treatment procedure</p>
-                    </div>
-
-                    <div class="video-item">
-                        <div class="video-thumbnail">
-                            <img src="../assets/images/image-placeholder.svg" alt="Bat Prevention Installation Video" loading="lazy">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <h3>Bat Prevention Installation</h3>
-                        <p>Step-by-step bat exclusion device installation</p>
-                    </div>
-
-                    <div class="video-item">
-                        <div class="video-thumbnail">
-                            <img src="../assets/images/image-placeholder.svg" alt="Emergency Response Video" loading="lazy">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <h3>Emergency Response</h3>
-                        <p>24-hour emergency corrective treatment response</p>
                     </div>
                 </div>
             </div>
@@ -471,6 +444,9 @@
 
     <!-- JavaScript Files -->
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/animations-phase1.js"></script>
+    <script src="../assets/js/animations-phase2.js"></script>
+    <script src="../assets/js/animations-phase3.js"></script>
     <script src="../assets/js/gallery.js"></script>
     <script src="../assets/js/components/footer.js"></script>
 </body>

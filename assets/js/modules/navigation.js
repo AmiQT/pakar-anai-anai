@@ -134,11 +134,22 @@ export class Navigation {
                 }
             });
             
-            // Click events for mobile
+            // Prevent navigation for dropdown headers on all devices
             mainLink.addEventListener('click', (e) => {
+                // Always prevent navigation for dropdown headers
+                e.preventDefault();
+                
                 if (window.innerWidth <= 768) {
-                    e.preventDefault();
+                    // Toggle dropdown on mobile
                     this.toggleDropdown(dropdownMenu);
+                } else {
+                    // Toggle dropdown on desktop
+                    const isVisible = dropdownMenu.style.opacity === '1';
+                    if (isVisible) {
+                        this.hideDropdown(dropdownMenu);
+                    } else {
+                        this.showDropdown(dropdownMenu);
+                    }
                 }
             });
         });

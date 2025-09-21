@@ -143,6 +143,7 @@ class GreetingPopup {
         
         this.config.isShown = true;
         this.popup.classList.add('active');
+        document.body.classList.add('popup-open');
         
         // Stop checking after showing
         this.stopChecking();
@@ -162,6 +163,7 @@ class GreetingPopup {
     
     closePopup(reason) {
         this.popup.classList.remove('active');
+        document.body.classList.remove('popup-open');
         this.config.isDismissed = true;
         
         // Store dismissal for current session only (will show again on refresh)

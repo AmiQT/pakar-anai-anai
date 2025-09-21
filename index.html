@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
@@ -13,14 +13,17 @@
     <link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png">
     <link rel="manifest" href="assets/images/favicon/site.webmanifest">
     
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://www.facebook.com" crossorigin>
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/animations-phase1.css">
-    <link rel="stylesheet" href="assets/css/animations-phase2.css">
-    <link rel="stylesheet" href="assets/css/animations-phase3.css">
-    
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
     <!-- Header -->
@@ -32,7 +35,7 @@
                 <div class="header-left-group">
                     <div class="header-logo">
                         <a href="index.html">
-                            <img src="assets/images/home/kme-logo-softcopy-03.png" alt="KME Pest Control Logo" class="header-logo-img">
+                            <img src="assets/images/home/kme-logo-softcopy-03.webp" alt="KME Pest Control Logo" class="header-logo-img">
                         </a>
                     </div>
                     
@@ -66,7 +69,7 @@
             <div class="container">
                 <div class="nav-logo">
                     <a href="index.html">
-                        <img src="assets/images/home/kme-logo-softcopy-03.png" alt="KME Pest Control Logo" class="logo-img">
+                        <img src="assets/images/home/kme-logo-softcopy-03.webp" alt="KME Pest Control Logo" class="logo-img">
                     </a>
                 </div>
                 
@@ -75,7 +78,7 @@
                         <a href="index.html" class="nav-link active">HOME</a>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="pages/about.html" class="nav-link">
+                        <a href="javascript:void(0);" class="nav-link">
                             ABOUT US <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-submenu">
@@ -85,7 +88,7 @@
                         </ul>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="pages/services.html" class="nav-link">
+                        <a href="javascript:void(0);" class="nav-link">
                             SERVICES <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-submenu">
@@ -102,7 +105,6 @@
                         <a href="pages/contact.html" class="nav-link">CONTACT</a>
                     </li>
                 </ul>
-
 
                 <!-- Mobile Menu Toggle -->
                 <div class="mobile-menu-toggle" id="mobile-toggle">
@@ -158,7 +160,7 @@
                             <div class="awani-video-section">
                                 <div class="video-testimonial-card awani-video-card">
                                     <div class="facebook-video-container">
-                                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffb.watch%2FC5QmQtmLXd%2F&show_text=false&width=560&t=0" 
+                                        <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffb.watch%2FC5QmQtmLXd%2F&show_text=false&width=560&t=0" 
                                                 width="100%" 
                                                 height="314" 
                                                 style="border:none;overflow:hidden" 
@@ -185,7 +187,7 @@
         <!-- Trust Stats moved into Services Intro below -->
 
         <!-- Maklum Balas Pelanggan - Facebook Video Testimonials -->
-        <section class="video-testimonials-section" data-scroll-animation="fade-up">
+        <section class="video-testimonials-section bg-alt" data-scroll-animation="fade-up">
             <div class="container">
                 <div class="section-header" data-scroll-animation="fade-up">
                     <h2>Maklum Balas Pelanggan</h2>
@@ -196,7 +198,7 @@
                     <!-- Video Testimonial 1 - MR KEITH KHOO -->
                     <div class="video-testimonial-card" data-scroll-animation="fade-up" data-scroll-stagger>
                         <div class="facebook-video-container">
-                            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffb.watch%2FC5Qs6WGNhU%2F&show_text=false&width=560&t=0" 
+                            <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffb.watch%2FC5Qs6WGNhU%2F&show_text=false&width=560&t=0" 
                                     width="100%" 
                                     height="314" 
                                     style="border:none;overflow:hidden" 
@@ -209,14 +211,14 @@
                         <div class="video-info">
                             <h3>MR KEITH KHOO</h3>
                             <p class="testimonial-quote">"Testimoni pelanggan yang berpuas hati dengan servis KME Pest Control"</p>
-                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                            <div class="rating">★★★★★</div>
                         </div>
                     </div>
 
                     <!-- Video Testimonial 2 - PUAN SUHANA -->
                     <div class="video-testimonial-card" data-scroll-animation="fade-up" data-scroll-stagger>
                         <div class="facebook-video-container">
-                            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffacebook.com%2FKMEpestcontrol%2Fvideos%2F1271253497687338%2F&show_text=false&width=560&t=0" 
+                            <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffacebook.com%2FKMEpestcontrol%2Fvideos%2F1271253497687338%2F&show_text=false&width=560&t=0" 
                                     width="100%" 
                                     height="314" 
                                     style="border:none;overflow:hidden" 
@@ -229,14 +231,14 @@
                         <div class="video-info">
                             <h3>PUAN SUHANA</h3>
                             <p class="testimonial-quote">"Pengalaman positif dengan servis profesional KME Pest Control"</p>
-                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                            <div class="rating">★★★★★</div>
                         </div>
                     </div>
 
                     <!-- Video Testimonial 3 - PUAN FATIMAH -->
                     <div class="video-testimonial-card" data-scroll-animation="fade-up" data-scroll-stagger>
                         <div class="facebook-video-container">
-                            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffacebook.com%2FKMEpestcontrol%2Fvideos%2F1063411679300948%2F&show_text=false&width=560&t=0" 
+                            <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffacebook.com%2FKMEpestcontrol%2Fvideos%2F1063411679300948%2F&show_text=false&width=560&t=0" 
                                     width="100%" 
                                     height="314" 
                                     style="border:none;overflow:hidden" 
@@ -249,7 +251,7 @@
                         <div class="video-info">
                             <h3>PUAN FATIMAH</h3>
                             <p class="testimonial-quote">"Berpuas hati dengan hasil rawatan dan servis yang diberikan"</p>
-                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                            <div class="rating">★★★★★</div>
                         </div>
                     </div>
                 </div>
@@ -268,7 +270,7 @@
         </section>
 
         <!-- Services Section - Clean CTA + Trust Stats Combined -->
-        <section class="services-intro" data-scroll-animation="fade-up">
+        <section class="services-intro bg-default" data-scroll-animation="fade-up">
             <div class="container">
                 <h2 data-scroll-animation="fade-up">Kenapa Pilih KME?</h2>
                 <p>Peneraju dalam industry kawalan serangga dengan komitmen memberikan servis terbaik untuk kebersihan dan keselamatan rumah anda.</p>
@@ -290,7 +292,7 @@
         </section>
 
         <!-- Main Services Section - Enhanced Design -->
-        <section class="main-services-section">
+        <section class="main-services-section bg-alt">
             <div class="container">
                 <h2 style="text-align: center; margin-bottom: 40px; color: var(--black);">MAIN SERVICES</h2>
                 
@@ -350,7 +352,7 @@
         </section>
 
         <!-- Law Protection Section - Numbered Steps -->
-        <section class="law-protection-section">
+        <section class="law-protection-section bg-default">
             <div class="container">
                 <h2>LAW PROTECTION</h2>
                 <div class="protection-steps">
@@ -380,7 +382,7 @@
         </section>
 
         <!-- Simplified Process Steps - 3 Key Steps -->
-        <section class="simple-process-section">
+        <section class="simple-process-section bg-alt">
             <div class="container">
                 <div class="process-header">
                     <h2>Cara Mudah Dapatkan Servis Kami</h2>
@@ -446,7 +448,7 @@
         </section>
 
         <!-- Professional Credentials - Enhanced Trust -->
-        <section class="credentials-section">
+        <section class="credentials-section bg-default">
             <div class="container">
                 <div class="credentials-header">
                     <h2>Government Approved & Licensed</h2>
@@ -454,9 +456,9 @@
                 </div>
                 
                 <div class="credentials-grid">
-                    <div class="credential-card" data-animate="fade-up">
+                    <div class="credential-card" data-scroll-animation="fade-up">
                         <div class="credential-image">
-                            <img src="assets/images/home/SSM-Logo.png" alt="SSM Certificate" loading="lazy" />
+                            <img src="assets/images/home/SSM-Logo.webp" alt="SSM Certificate" loading="lazy" />
                         </div>
                         <div class="credential-content">
                             <h3>Suruhanjaya Syarikat Malaysia</h3>
@@ -468,9 +470,9 @@
                         </div>
                     </div>
                     
-                    <div class="credential-card" data-animate="fade-up" data-delay="100">
+                    <div class="credential-card" data-scroll-animation="fade-up" data-scroll-delay="100">
                         <div class="credential-image">
-                            <img src="assets/images/home/KKM.png" alt="KKM Certificate" loading="lazy" />
+                            <img src="assets/images/home/KKM.webp" alt="KKM Certificate" loading="lazy" />
                         </div>
                         <div class="credential-content">
                             <h3>Kementerian Kesihatan</h3>
@@ -482,9 +484,9 @@
                         </div>
                     </div>
                     
-                    <div class="credential-card" data-animate="fade-up" data-delay="200">
+                    <div class="credential-card" data-scroll-animation="fade-up" data-scroll-delay="200">
                         <div class="credential-image">
-                            <img src="assets/images/home/MPK.png" alt="MPK Certificate" loading="lazy" />
+                            <img src="assets/images/home/MPK.webp" alt="MPK Certificate" loading="lazy" />
                         </div>
                         <div class="credential-content">
                             <h3>Majlis Perbandaran Kuantan</h3>
@@ -496,9 +498,9 @@
                         </div>
                     </div>
                     
-                    <div class="credential-card" data-animate="fade-up" data-delay="300">
+                    <div class="credential-card" data-scroll-animation="fade-up" data-scroll-delay="300">
                         <div class="credential-image">
-                            <img src="assets/images/home/Jabatan-Pertanian-01.png" alt="Jabatan Pertanian Certificate" loading="lazy" />
+                            <img src="assets/images/home/Jabatan-Pertanian-01.webp" alt="Jabatan Pertanian Certificate" loading="lazy" />
                         </div>
                         <div class="credential-content">
                             <h3>Jabatan Pertanian</h3>
@@ -534,19 +536,49 @@
         </section>
 
         <!-- Testimonial Quote Section -->
-        <section class="testimonial-quote-section">
+        <section class="testimonial-quote-section bg-alt">
             <div class="container">
                 <blockquote>
                     <h3>" In 6 months time, you can either be in the same place or a better place. Focus everyday on improving your health, wealth, and happiness. It will take time but you can make it happen "</h3>
-                    <cite>– Puan Liza –</cite>
+                    <cite>&ndash; Puan Liza &ndash;</cite>
                 </blockquote>
             </div>
         </section>
 
         <!-- Duplicate "What Our Clients Say" section removed -->
 
+        <!-- Testimonials List (simple cards) -->
+        <section class="home-testimonials-list bg-alt" data-scroll-animation="fade-up">
+            <div class="container">
+                <div class="section-header" data-scroll-animation="fade-up">
+                    <h2>Apa Kata Pelanggan</h2>
+                    <p>Ringkasan maklum balas pelanggan tentang servis kami.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Selepas rawatan KME, masalah selesai dan servis terbaik."</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Team sangat profesional dan kemas bekerja."</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Harga okay, hasil pun memuaskan."</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Final CTA Section - Action Focused -->
-        <section class="final-cta-section">
+        <section class="final-cta-section bg-brand">
             <div class="container">
                 <div class="final-cta-content">
                     <div class="urgency-message">
@@ -613,20 +645,6 @@
                             </a>
                         </div>
                     </div>
-                    <div class="hero-image">
-                        <div class="hero-image-container">
-                            <img src="assets/images/hero-pest-control.jpg" alt="KME Pest Control Expert Services" loading="lazy">
-                            <div class="hero-badge">
-                                <div class="badge-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div class="badge-content">
-                                    <span class="badge-number">15+</span>
-                                    <span class="badge-label">Tahun Pengalaman</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             
@@ -649,23 +667,26 @@
     <!-- Footer will be loaded by footer component -->
 
     <!-- JavaScript Files -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/animations-phase1.js"></script>
-    <script src="assets/js/animations-phase2.js"></script>
-    <script src="assets/js/animations-phase3.js"></script>
-    <script src="assets/js/utils/api.js"></script>
-    <script src="assets/js/components/footer.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/animations-phase1.js"></script>
+    <script defer src="assets/js/animations-phase2.js"></script>
+    <script defer src="assets/js/animations-phase3.js"></script>
+    <script defer src="assets/js/components/footer.js"></script>
 
     <!-- Popup Overlay - Auto Trigger -->
     <div class="popup-overlay" id="anaiPopup">
         <div class="popup-content">
             <button class="popup-close" id="closePopup">&times;</button>
-            <h3 class="popup-title">JANGAN TUNGGU RUMAH ANDA ROBOH</h3>
-            <h4 class="popup-subtitle">ANAI-ANAI MUSUH DALAM DIAM</h4>
-            <p class="popup-message">HUBUNGI KAMI UNTUK DAPATKAN PEMERIKSAAN PERCUMA</p>
+            <h3 class="popup-title-white">
+                JANGAN TUNGGU<br>
+                RUMAH ANDA ROBOH
+            </h3>
+            <h4 class="popup-subtitle-yellow">ANAI-ANAI MUSUH DALAM DIAM</h4>
+            <p class="popup-message-regular">HUBUNGI KAMI UNTUK DAPATKAN</p>
+            <p class="popup-message-emphasis">PEMERIKSAAN PERCUMA</p>
             <a href="https://wsap.to/kmepestcontrol" class="btn-whatsapp-secondary" target="_blank">
                 <i class="fab fa-whatsapp"></i>
-                WhatsApp Sekarang
+                HUBUNGI KAMI
             </a>
         </div>
     </div>
@@ -675,8 +696,10 @@
         <div class="loading-spinner"></div>
     </div>
 
-
     <!-- Load Greeting Popup Script -->
-    <script src="assets/js/greeting-popup.js"></script>
+    <script defer src="assets/js/greeting-popup.js"></script>
+    <script defer src="assets/js/utils/scroll-snap.js"></script>
+    <script defer src="assets/js/utils/section-pagination.js"></script>
 </body>
 </html>
+

@@ -14,11 +14,8 @@
     <link rel="manifest" href="../assets/images/favicon/site.webmanifest">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="../assets/css/main.css?v=4.8">
-    <link rel="stylesheet" href="../assets/css/animations-phase1.css">
-    <link rel="stylesheet" href="../assets/css/animations-phase2.css">
-    <link rel="stylesheet" href="../assets/css/animations-phase3.css">
-    
+    <link rel="stylesheet" href="../assets/css/main.css?v=4.10">
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -32,7 +29,7 @@
                 <div class="header-left-group">
                     <div class="header-logo">
                         <a href="../index.html">
-                            <img src="../assets/images/home/kme-logo-softcopy-03.png" alt="KME Pest Control Logo" class="header-logo-img">
+                            <img src="../assets/images/home/kme-logo-softcopy-03.webp" alt="KME Pest Control Logo" class="header-logo-img">
                         </a>
                     </div>
                     
@@ -66,7 +63,7 @@
             <div class="container">
                 <div class="nav-logo">
                     <a href="../index.html">
-                        <img src="../assets/images/home/kme-logo-softcopy-03.png" alt="KME Pest Control Logo" class="logo-img">
+                        <img src="../assets/images/home/kme-logo-softcopy-03.webp" alt="KME Pest Control Logo" class="logo-img">
                     </a>
                 </div>
                 
@@ -75,7 +72,7 @@
                         <a href="../index.html" class="nav-link">HOME</a>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="about.html" class="nav-link">
+                        <a href="javascript:void(0);" class="nav-link">
                             ABOUT US <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-submenu">
@@ -85,7 +82,7 @@
                         </ul>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="services.html" class="nav-link active">
+                        <a href="javascript:void(0);" class="nav-link active">
                             SERVICES <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-submenu">
@@ -102,7 +99,6 @@
                         <a href="contact.html" class="nav-link">CONTACT</a>
                     </li>
                 </ul>
-
 
                 <!-- Mobile Menu Toggle -->
                 <div class="mobile-menu-toggle" id="mobile-toggle">
@@ -145,15 +141,14 @@
         </section>
 
         <!-- Services Introduction -->
-        <section class="services-intro" style="padding: 60px 0; margin-bottom: 40px;">
+        <section class="services-intro" data-scroll-animation="fade-up" style="padding: 60px 0; margin-bottom: 40px;">
             <div class="container">
-                <div class="intro-content">
+                <div class="section-header" data-scroll-animation="fade-up">
                     <h2>Pilih Pakej Yang Sesuai Untuk Anda</h2>
                     <p>KME menawarkan 4 jenis servis kawalan perosak yang telah terbukti berkesan melindungi 10,000+ rumah selama 15+ tahun</p>
                 </div>
             </div>
         </section>
-
 
         <!-- Services List -->
         <section class="services-list-section" style="padding: 60px 0;">
@@ -162,8 +157,8 @@
                     
                     <!-- Soil Treatment -->
                     <div class="service-item" id="ST">
-                        <div class="service-icon">
-                            <i class="fas fa-hard-hat"></i>
+                        <div class="service-image">
+                            <img src="../assets/images/services/KME-ST.webp" alt="KME Soil Treatment Service" class="service-img">
                         </div>
                         <div class="service-info">
                             <div class="service-header">
@@ -199,8 +194,8 @@
 
                     <!-- Bat Prevention -->
                     <div class="service-item" id="BT">
-                        <div class="service-icon">
-                            <i class="fas fa-spray-can"></i>
+                        <div class="service-image">
+                            <img src="../assets/images/services/KME-BP.webp" alt="KME Bat Prevention Service" class="service-img">
                         </div>
                         <div class="service-info">
                             <div class="service-header">
@@ -236,8 +231,8 @@
 
                     <!-- Pest Protection -->
                     <div class="service-item" id="PP">
-                        <div class="service-icon">
-                            <i class="fas fa-home"></i>
+                        <div class="service-image">
+                            <img src="../assets/images/services/KME-PP.webp" alt="KME Pest Protection Service" class="service-img">
                         </div>
                         <div class="service-info">
                             <div class="service-header">
@@ -279,8 +274,8 @@
 
                     <!-- Corrective Treatment -->
                     <div class="service-item" id="CT">
-                        <div class="service-icon">
-                            <i class="fas fa-tools"></i>
+                        <div class="service-image">
+                            <img src="../assets/images/services/KME-CT.webp" alt="KME Corrective Treatment Service" class="service-img">
                         </div>
                         <div class="service-info">
                             <div class="service-header">
@@ -332,7 +327,7 @@
                 </div>
 
                 <div class="pest-grid">
-                    <div class="pest-card" data-animate="fade-up">
+                    <div class="pest-card" data-scroll-animation="fade-up">
                         <div class="pest-icon">
                             <i class="fas fa-bug"></i>
                         </div>
@@ -340,7 +335,7 @@
                         <p>Kawalan semut profesional untuk kediaman dan premis perniagaan.</p>
                     </div>
 
-                    <div class="pest-card" data-animate="fade-up">
+                    <div class="pest-card" data-scroll-animation="fade-up">
                         <div class="pest-icon">
                             <i class="fas fa-spider"></i>
                         </div>
@@ -348,7 +343,7 @@
                         <p>Pembasmian lipas yang berkesan dan selamat untuk keluarga.</p>
                     </div>
 
-                    <div class="pest-card" data-animate="fade-up">
+                    <div class="pest-card" data-scroll-animation="fade-up">
                         <div class="pest-icon">
                             <i class="fas fa-mouse"></i>
                         </div>
@@ -356,7 +351,7 @@
                         <p>Kawalan tikus komprehensif dengan jaminan hasil yang berkesan.</p>
                     </div>
 
-                    <div class="pest-card" data-animate="fade-up">
+                    <div class="pest-card" data-scroll-animation="fade-up">
                         <div class="pest-icon">
                             <i class="fas fa-home"></i>
                         </div>
@@ -364,15 +359,15 @@
                         <p>Rawatan anai-anai khusus dengan jaminan hingga 7 tahun.</p>
                     </div>
 
-                    <div class="pest-card" data-animate="fade-up">
+                    <div class="pest-card" data-scroll-animation="fade-up">
                         <div class="pest-icon">
-                            <i class="fas fa-fly"></i>
+                            <i class="fas fa-bug"></i>
                         </div>
                         <h3>LALAT</h3>
                         <p>Penyelesaian masalah lalat untuk persekitaran yang bersih.</p>
                     </div>
 
-                    <div class="pest-card" data-animate="fade-up">
+                    <div class="pest-card" data-scroll-animation="fade-up">
                         <div class="pest-icon">
                             <i class="fas fa-mosquito"></i>
                         </div>
@@ -401,6 +396,5 @@
         <div class="loading-spinner"></div>
     </div>
 
-    
 </body>
 </html>

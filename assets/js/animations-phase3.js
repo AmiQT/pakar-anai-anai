@@ -239,6 +239,8 @@ class ParticleSystem {
     
     init() {
         this.createCanvas();
+        // Gracefully exit if no hero section/canvas on this page
+        if (!this.canvas) return;
         this.setupParticles();
         this.startAnimation();
         this.setupInteractiveParticles();
@@ -280,6 +282,7 @@ class ParticleSystem {
      * Setup particles
      */
     setupParticles() {
+        if (!this.canvas) return;
         const particleCount = window.innerWidth < 768 ? 20 : 50;
         
         for (let i = 0; i < particleCount; i++) {
@@ -291,9 +294,11 @@ class ParticleSystem {
      * Create individual particle
      */
     createParticle() {
+        const width = this.canvas ? this.canvas.width : window.innerWidth;
+        const height = this.canvas ? this.canvas.height : window.innerHeight;
         return {
-            x: Math.random() * this.canvas.width,
-            y: Math.random() * this.canvas.height,
+            x: Math.random() * width,
+            y: Math.random() * height,
             vx: (Math.random() - 0.5) * 0.5,
             vy: (Math.random() - 0.5) * 0.5,
             size: Math.random() * 3 + 1,
@@ -670,9 +675,8 @@ class InteractiveAnimations {
     }
     
     init() {
-        this.setupMouseFollower();
+        // Disable mouse follower and interactive spotlight effects sitewide
         this.setupMagneticElements();
-        this.setupInteractiveZones();
     }
     
     /**
@@ -720,7 +724,8 @@ class InteractiveAnimations {
      * Setup magnetic elements
      */
     setupMagneticElements() {
-        const magneticElements = document.querySelectorAll('.btn, .social-icon');
+        // Apply magnetic effect to buttons only (exclude header social icons)
+        const magneticElements = document.querySelectorAll('.btn');
         
         magneticElements.forEach(element => {
             element.classList.add('magnetic-element');
@@ -732,6 +737,14 @@ class InteractiveAnimations {
             element.addEventListener('mouseleave', () => {
                 this.resetMagneticElement(element);
             });
+        });
+        
+        // Cleanup any previously added classes/vars on social icons to unify animations
+        const socialIcons = document.querySelectorAll('.social-icon.magnetic-element');
+        socialIcons.forEach(icon => {
+            icon.classList.remove('magnetic-element');
+            icon.style.removeProperty('--magnetic-x');
+            icon.style.removeProperty('--magnetic-y');
         });
     }
     
@@ -982,7 +995,7 @@ class Phase3Animations {
             this.complexParallax = new ComplexParallax();
             this.advancedCarousel = new AdvancedCarousel('#testimonials-carousel-3d');
             this.interactiveAnimations = new InteractiveAnimations();
-            this.performanceMonitor = new PerformanceMonitor();
+            // this.performanceMonitor = new PerformanceMonitor(); // 🔒 Performance monitor disabled
             
             console.log('Phase 3 Advanced Animations initialized successfully');
             

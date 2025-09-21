@@ -10,7 +10,7 @@
 // ========================================
 
 const CONFIG = {
-    API_BASE_URL: 'https://pakaranaianai.com/wp-json/wp/v2/',
+    API_BASE_URL: '',
     ANIMATION_DURATION: 300,
     CAROUSEL_AUTO_PLAY: true,
     CAROUSEL_INTERVAL: 5000,
@@ -740,27 +740,9 @@ class FormHandler {
                 date: preferredDate
             };
 
-            const endpoint = 'https://pakaranaianai.com/wp-json/kme/v1/booking-form';
-            const response = await fetch(endpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-
-            if (!response.ok) {
-                let errText = 'Ralat pelayan';
-                try {
-                    const errJson = await response.json();
-                    errText = errJson && (errJson.message || JSON.stringify(errJson));
-                } catch (_) {}
-                throw new Error(errText);
-            }
-
-            const result = await response.json();
-            if (!result || result.success !== true) {
-                throw new Error((result && result.message) || 'Penghantaran gagal');
-            }
-            return result;
+            // Simulasi submission (tiada backend WP)
+            await new Promise(resolve => setTimeout(resolve, 600));
+            return { success: true, message: 'Booking submitted (simulated)' };
         }
 
         // Default: simulasi untuk borang lain
