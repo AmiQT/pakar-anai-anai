@@ -10,12 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function initTestimonialCarousel() {
     // Get carousel elements
     const carousel = document.querySelector('.testimonials-carousel');
-    const prevBtn = document.querySelector('.carousel-navigation .carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-navigation .carousel-btn.next');
-    const dotsContainer = document.querySelector('.carousel-navigation .carousel-dots');
     
-    // If any element is missing, exit
-    if (!carousel || !prevBtn || !nextBtn || !dotsContainer) {
+    // If carousel is missing, exit
+    if (!carousel) {
         console.warn('Testimonial carousel elements not found');
         return;
     }
@@ -47,35 +44,28 @@ function initTestimonialCarousel() {
         return Math.ceil(totalCards / getItemsPerView());
     }
     
-    // Create dot indicators
+    // Create dot indicators (disabled)
     function createDots() {
-        dotsContainer.innerHTML = '';
-        const totalSlides = getTotalSlides();
-        
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('button');
-            dot.className = i === currentIndex ? 'carousel-dot active' : 'carousel-dot';
-            dot.setAttribute('aria-label', `Slide ${i + 1}`);
-            dot.addEventListener('click', () => {
-                if (isAnimating) return;
-                goToSlide(i);
-            });
-            dotsContainer.appendChild(dot);
-        }
+        // Dots are disabled, do nothing
     }
     
-    // Update dot indicators
+    // Update dot indicators (disabled)
     function updateDots() {
-        const dots = dotsContainer.querySelectorAll('.carousel-dot');
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-        });
+        // Dots are disabled, do nothing
     }
     
     // Update button states
     function updateButtons() {
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === getTotalSlides() - 1;
+        const sideNavPrevBtn = document.querySelector('.side-nav-btn.prev');
+        const sideNavNextBtn = document.querySelector('.side-nav-btn.next');
+        
+        if (sideNavPrevBtn) {
+            sideNavPrevBtn.disabled = currentIndex === 0;
+        }
+        
+        if (sideNavNextBtn) {
+            sideNavNextBtn.disabled = currentIndex === getTotalSlides() - 1;
+        }
     }
     
     // Go to specific slide
@@ -234,10 +224,6 @@ function initTestimonialCarousel() {
     function initializeCarousel() {
         createDots();
         updateButtons();
-        
-        // Add event listeners
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
         
         // Add side navigation buttons for desktop
         const sideNavPrevBtn = document.querySelector('.side-nav-btn.prev');

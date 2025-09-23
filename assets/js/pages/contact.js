@@ -249,37 +249,81 @@ class ContactPage {
      * Setup FAQ accordion
      */
     setupFAQ() {
-        this.faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
-            const icon = question.querySelector('i');
+        // Use modern selector for FAQ items in new design
+        const faqItems = document.querySelectorAll('.faq-item-modern');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question-modern');
+            const answer = item.querySelector('.faq-answer-modern');
+            const toggleIcon = item.querySelector('.faq-toggle i');
             
-            question.addEventListener('click', () => {
-                const isOpen = item.classList.contains('active');
-                
-                // Close all other FAQ items
-                this.faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                        const otherAnswer = otherItem.querySelector('.faq-answer');
-                        const otherIcon = otherItem.querySelector('.faq-question i');
-                        otherAnswer.style.maxHeight = '0';
-                        otherIcon.style.transform = 'rotate(0deg)';
+            if (question && answer && toggleIcon) {
+                question.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            const otherToggleIcon = otherItem.querySelector('.faq-toggle i');
+                            if (otherToggleIcon) {
+                                otherToggleIcon.classList.remove('fa-minus');
+                                otherToggleIcon.classList.add('fa-plus');
+                            }
+                        }
+                    });
+                    
+                    // Toggle current item
+                    if (isOpen) {
+                        item.classList.remove('active');
+                        toggleIcon.classList.remove('fa-minus');
+                        toggleIcon.classList.add('fa-plus');
+                    } else {
+                        item.classList.add('active');
+                        toggleIcon.classList.remove('fa-plus');
+                        toggleIcon.classList.add('fa-minus');
                     }
                 });
+            }
+        });
+        
+        // Keep compatibility with old design if it exists
+        const oldFaqItems = document.querySelectorAll('.faq-item:not(.faq-item-modern)');
+        if (oldFaqItems.length > 0) {
+            oldFaqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = question?.querySelector('i');
                 
-                // Toggle current item
-                if (isOpen) {
-                    item.classList.remove('active');
-                    answer.style.maxHeight = '0';
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    item.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    icon.style.transform = 'rotate(180deg)';
+                if (question && answer && icon) {
+                    question.addEventListener('click', () => {
+                        const isOpen = item.classList.contains('active');
+                        
+                        // Close all other FAQ items
+                        oldFaqItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                                const otherAnswer = otherItem.querySelector('.faq-answer');
+                                const otherIcon = otherItem.querySelector('.faq-question i');
+                                if (otherAnswer) otherAnswer.style.maxHeight = '0';
+                                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                            }
+                        });
+                        
+                        // Toggle current item
+                        if (isOpen) {
+                            item.classList.remove('active');
+                            answer.style.maxHeight = '0';
+                            icon.style.transform = 'rotate(0deg)';
+                        } else {
+                            item.classList.add('active');
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            icon.style.transform = 'rotate(180deg)';
+                        }
+                    });
                 }
             });
-        });
+        }
     }
     
     /**
@@ -439,295 +483,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.socialMediaTracking = new SocialMediaTracking();
 });
 
-// Add custom CSS for contact page
-const contactPageStyles = `
-    /* Contact form styles */
-    .contact-form {
-        max-width: 100%;
-    }
-    
-    .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-bottom: 20px;
-    }
-    
-    .form-group {
-        margin-bottom: 20px;
-    }
-    
-    .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: var(--dark-gray);
-    }
-    
-    .required {
-        color: #dc3545;
-    }
-    
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 100%;
-        padding: 12px 15px;
-        border: 2px solid #E9ECEF;
-        border-radius: var(--border-radius);
-        font-size: 1rem;
-        transition: var(--transition-fast);
-        background: var(--white);
-    }
-    
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-        outline: none;
-        border-color: var(--primary-blue);
-        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-    }
-    
-    .form-group input.error,
-    .form-group select.error,
-    .form-group textarea.error {
-        border-color: #dc3545;
-        box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
-    }
-    
-    .field-error {
-        color: #dc3545;
-        font-size: 0.875rem;
-        margin-top: 5px;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-    
-    .field-error::before {
-        content: "⚠️";
-        font-size: 0.8rem;
-    }
-    
-    .checkbox-group {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .checkbox-label {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        cursor: pointer;
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-    
-    .checkbox-label input[type="checkbox"] {
-        width: auto;
-        margin: 0;
-    }
-    
-    .submit-btn {
-        background: var(--primary-blue);
-        color: var(--white);
-        padding: 15px 30px;
-        border: none;
-        border-radius: var(--border-radius-large);
-        font-size: 1.1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition-medium);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .submit-btn:hover:not(:disabled) {
-        background: var(--secondary-blue);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-medium);
-    }
-    
-    .submit-btn:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-        transform: none;
-    }
-    
-    /* FAQ styles */
-    .faq-item {
-        background: var(--white);
-        border-radius: var(--border-radius-large);
-        margin-bottom: 20px;
-        overflow: hidden;
-        box-shadow: var(--shadow-light);
-        transition: var(--transition-medium);
-    }
-    
-    .faq-item:hover {
-        box-shadow: var(--shadow-medium);
-    }
-    
-    .faq-question {
-        padding: 25px;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: var(--white);
-        transition: var(--transition-fast);
-    }
-    
-    .faq-question:hover {
-        background: var(--light-gray);
-    }
-    
-    .faq-question h3 {
-        font-size: 1.2rem;
-        color: var(--dark-gray);
-        font-weight: 600;
-        margin: 0;
-        flex: 1;
-    }
-    
-    .faq-question i {
-        color: var(--primary-blue);
-        transition: transform 0.3s ease;
-        font-size: 1.2rem;
-    }
-    
-    .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        background: var(--light-gray);
-    }
-    
-    .faq-answer p,
-    .faq-answer ul {
-        padding: 0 25px 25px;
-        margin: 0;
-        color: var(--medium-gray);
-        line-height: 1.6;
-    }
-    
-    .faq-answer ul {
-        padding-left: 45px;
-        padding-top: 10px;
-    }
-    
-    .faq-answer li {
-        margin-bottom: 8px;
-    }
-    
-    /* Contact methods animations */
-    .contact-method.animate-ready {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    
-    .contact-method.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    /* Map styles */
-    .map-placeholder {
-        background: var(--light-gray);
-        border-radius: var(--border-radius-large);
-        padding: 60px 40px;
-        text-align: center;
-        border: 2px dashed var(--medium-gray);
-        transition: var(--transition-medium);
-    }
-    
-    .map-placeholder:hover {
-        border-color: var(--primary-blue);
-        background: rgba(74, 144, 226, 0.05);
-    }
-    
-    .map-content i {
-        font-size: 3rem;
-        color: var(--primary-blue);
-        margin-bottom: 20px;
-    }
-    
-    .map-content h3 {
-        font-size: 1.5rem;
-        color: var(--dark-gray);
-        margin-bottom: 15px;
-    }
-    
-    .map-content p {
-        color: var(--medium-gray);
-        margin-bottom: 30px;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .map-buttons {
-        display: flex;
-        gap: 15px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .map-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--primary-blue);
-        color: var(--white);
-        padding: 12px 20px;
-        border-radius: var(--border-radius);
-        text-decoration: none;
-        font-weight: 600;
-        transition: var(--transition-fast);
-    }
-    
-    .map-btn:hover {
-        background: var(--secondary-blue);
-        transform: translateY(-2px);
-    }
-    
-    .map-btn.waze {
-        background: #00B4FF;
-    }
-    
-    .map-btn.waze:hover {
-        background: #0099CC;
-    }
-    
-    /* Mobile responsiveness */
-    @media (max-width: 767px) {
-        .form-row {
-            grid-template-columns: 1fr;
-            gap: 0;
-        }
-        
-        .contact-content {
-            grid-template-columns: 1fr;
-        }
-        
-        .map-buttons {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .map-btn {
-            width: 200px;
-            justify-content: center;
-        }
-    }
-`;
-
-// Add styles to document
-const contactStyleSheet = document.createElement('style');
-contactStyleSheet.textContent = contactPageStyles;
-document.head.appendChild(contactStyleSheet);
+// CSS styles have been moved to the dedicated contact.css file
+// This comment is kept for future reference

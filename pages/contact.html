@@ -6,14 +6,20 @@
     <meta name="description" content="Hubungi KME Pest Control untuk perkhidmatan kawalan perosak profesional. Dapatkan sebut harga percuma hari ini.">
     <title>Hubungi Kami - KME Pest Control</title>
     
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" href="../assets/images/favicon/apple-touch-icon.png">
     <link rel="manifest" href="../assets/images/favicon/site.webmanifest">
     
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <!-- Page-specific styles for Contact page -->
-    <link rel="stylesheet" href="../assets/css/4-pages/contact.css?v=1">
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://www.facebook.com" crossorigin>
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    
+    <!-- Contact page style-->
+     <link rel="stylesheet" href="../assets/css/main.css">
+    
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -21,24 +27,24 @@
     <header id="header">
         <!-- Top Contact Bar - Redesigned Layout -->
         <div class="top-contact-bar">
-            <div class="container">
+            <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:20px; padding:0 20px;">
                 <!-- Left: Logo + Contact grouped together -->
-                <div class="header-left-group">
-                    <div class="header-logo">
+                <div class="header-left-group" style="display:flex; align-items:center; gap:20px; color:var(--white); margin:0; padding:0; box-sizing:border-box;">
+                    <div class="header-logo" style="flex:0 0 auto;">
                         <a href="../index.html">
-                            <img src="../assets/images/home/kme-logo-softcopy-03.webp" alt="KME Pest Control Logo" class="header-logo-img">
+                            <img src="../assets/images/home/kme-logo-softcopy-03.webp" alt="KME Pest Control Logo" class="header-logo-img" style="height:50px; width:auto;">
                         </a>
                     </div>
                     
-                    <div class="header-contact">
-                        <a href="https://wsap.to/kmepestcontrol" class="contact-whatsapp-text">
+                    <div class="header-contact" style="flex:0 0 auto; margin-left:20px;">
+                        <a href="https://wsap.to/kmepestcontrol" class="contact-whatsapp-text" style="color:var(--white); text-decoration:none; font-weight:500; font-size:16px;">
                             Hubungi Kami (+6011 2962 3741)
                         </a>
                     </div>
                 </div>
                 
                 <!-- Right: Social Media Icons -->
-                <div class="header-social">
+                <div class="header-social" style="display:flex; gap:15px; align-items:center;">
                     <a href="https://www.facebook.com/KMEpestcontrol" target="_blank" class="social-icon">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
@@ -112,9 +118,11 @@
         <section class="contact-hero-new">
             <div class="container">
                 <div class="hero-content-new">
-                    <h1 class="hero-title">Hubungi Pakar Kawalan Perosak Anda</h1>
-                    <p class="hero-subtitle">Sedia membantu anda di Pahang & Terengganu. Dapatkan konsultasi & sebut harga percuma tanpa sebarang obligasi.</p>
-                    <a href="#contact-form" class="cta-button">Dapatkan Sebut Harga Percuma</a>
+                    <h1 class="hero-title" style="text-align: center !important; width: 100%; display: block; letter-spacing: -0.5px;">Hubungi Pakar Anai-Anai<br>KME PEST CONTROL</h1>
+                    <p class="hero-subtitle">Book slot pemeriksaan PERCUMA dengan segera
+                        <br>untuk dapatkan cadangan penyelesaiaan terbaik.
+                    </p>
+                    <a href="#contact-form" class="cta-button">HUBUNGI KAMI</a>
                 </div>
             </div>
         </section>
@@ -122,13 +130,7 @@
         <!-- Section 2: Contact Details -->
         <section class="contact-details-section">
             <div class="container">
-                <div class="details-grid">
-                    <div class="detail-card">
-                        <div class="card-icon"><i class="fas fa-phone-alt"></i></div>
-                        <h3 class="card-title">Telefon</h3>
-                        <p class="card-text">Hubungi kami untuk respons segera. Sesuai untuk kes kecemasan.</p>
-                        <a href="tel:+601129623741" class="card-link">+6011 2962 3741</a>
-                    </div>
+                <div class="details-grid three-cards">
                     <div class="detail-card">
                         <div class="card-icon"><i class="fab fa-whatsapp"></i></div>
                         <h3 class="card-title">WhatsApp</h3>
@@ -416,13 +418,14 @@
     <!-- Footer will be loaded by footer component -->
 
     <!-- JavaScript Files -->
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/animations-phase1.js"></script>
-    <script src="../assets/js/animations-phase2.js"></script>
-    <script src="../assets/js/animations-phase3.js"></script>
-    <script src="../assets/js/utils/api.js"></script>
-    <script src="../assets/js/pages/contact.js"></script>
-    <script src="../assets/js/components/footer.js"></script>
+    <script defer src="../assets/js/main.js"></script>
+    <script defer src="../assets/js/animations-phase1.js"></script>
+    <script defer src="../assets/js/animations-phase2.js"></script>
+    <script defer src="../assets/js/animations-phase3.js"></script>
+    <script defer src="../assets/js/pages/contact.js"></script>
+    <script defer src="../assets/js/components/footer.js"></script>
+    <script defer src="../assets/js/utils/scroll-snap.js"></script>
+    <script defer src="../assets/js/utils/section-pagination.js"></script>
 
     <!-- Loading indicator -->
     <div id="loading" class="loading-overlay">

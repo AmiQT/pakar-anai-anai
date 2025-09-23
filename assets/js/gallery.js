@@ -19,48 +19,137 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeGalleryFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
     
     if (!filterButtons.length || !galleryItems.length) return;
+    
+    // Limit for displayed items per category
+    const ITEMS_LIMIT = 5;
+    let currentFilter = 'all';
+    let isShowingAll = false;
+    
+    // Apply initial filter limit (for "all" category)
+    applyFilterWithLimit('all', ITEMS_LIMIT);
     
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             const filterValue = this.getAttribute('data-filter');
+            currentFilter = filterValue;
+            
+            // Reset showing all flag when changing filters
+            isShowingAll = false;
             
             // Update active button
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
-            // Filter gallery items
-            galleryItems.forEach(item => {
-                const categories = item.getAttribute('data-category');
-                
-                if (filterValue === 'all' || categories.includes(filterValue)) {
+            // Apply filter with limit
+            applyFilterWithLimit(filterValue, ITEMS_LIMIT);
+            
+            // Reset load more button
+            if (loadMoreBtn) {
+                loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Lihat Semua';
+                loadMoreBtn.disabled = false;
+                loadMoreBtn.style.display = 'block';
+            }
+        });
+    });
+    
+    // Function to apply filter with limit (only for 'all' category)
+    function applyFilterWithLimit(filterValue, limit) {
+        let count = 0;
+        
+        galleryItems.forEach(item => {
+            const categories = item.getAttribute('data-category');
+            
+            if (filterValue === 'all' || categories.includes(filterValue)) {
+                // Apply limit only to 'all' category, show all items for specific categories
+                if ((filterValue === 'all' && (count < limit || isShowingAll)) || filterValue !== 'all') {
                     item.style.display = 'block';
                     item.style.animation = 'fadeInUp 0.5s ease forwards';
                 } else {
                     item.style.display = 'none';
                 }
-            });
-            
-            // Show feedback
-            showFilterFeedback(filterValue, galleryItems);
+                count++;
+            } else {
+                item.style.display = 'none';
+            }
         });
-    });
+        
+        // Update load more button visibility - only for 'all' category
+        if (loadMoreBtn) {
+            const totalItems = Array.from(galleryItems).filter(item => {
+                const cats = item.getAttribute('data-category');
+                return filterValue === 'all' || cats.includes(filterValue);
+            }).length;
+            
+            // Only show button for 'all' category and if there are more items than the limit
+            loadMoreBtn.style.display = (filterValue === 'all' && totalItems > limit && !isShowingAll) ? 'block' : 'none';
+        }
+        
+        // Show feedback
+        const shouldApplyLimit = filterValue === 'all' && !isShowingAll;
+        showFilterFeedback(filterValue, galleryItems, count, shouldApplyLimit ? limit : null);
+    }
+    
+    // Handle Load More button
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memuat...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                isShowingAll = true;
+                applyFilterWithLimit(currentFilter, ITEMS_LIMIT);
+                this.innerHTML = '<i class="fas fa-check"></i> Semua Dimuat';
+                this.style.display = 'none';
+            }, 500);
+        });
+    }
 }
 
 /**
  * Show Filter Feedback
  */
-function showFilterFeedback(filterValue, galleryItems) {
-    const visibleItems = Array.from(galleryItems).filter(item => 
+function showFilterFeedback(filterValue, galleryItems, visibleCount, limit) {
+    // If visibleCount is not provided, calculate it
+    const visibleItems = visibleCount || Array.from(galleryItems).filter(item => 
         item.style.display !== 'none'
     ).length;
     
+    // Define filter display names for Malay names
+    const filterDisplayNames = {
+        'all': 'All Projects',
+        'baiting': 'Baiting',
+        'corrective': 'Corrective Treatment',
+        'pest-protection': 'Pest Protection',
+        'fogging': 'Fogging',
+        'soil-treatment': 'Soil Treatment',
+        'kawalan-kelawar': 'Kawalan Kelawar',
+        'kawalan-hama': 'Kawalan Hama/Pepijat/Kutu',
+        'trsbs': 'Pemasangan TRSBS',
+        'sulfur-ular': 'Sulfur/Kawalan Ular'
+    };
+    
     // You can add notification here if showNotification exists
     if (typeof showNotification === 'function') {
-        const filterName = filterValue === 'all' ? 'All Projects' : 
+        const filterName = filterDisplayNames[filterValue] || 
                           filterValue.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
-        showNotification(`Showing ${visibleItems} ${filterName} projects`, 'info');
+        
+        if (limit) {
+            const totalItems = Array.from(galleryItems).filter(item => {
+                const cats = item.getAttribute('data-category');
+                return filterValue === 'all' || cats.includes(filterValue);
+            }).length;
+            
+            if (totalItems > limit) {
+                showNotification(`Menunjukkan ${visibleItems} dari ${totalItems} projek ${filterName}`, 'info');
+            } else {
+                showNotification(`Menunjukkan ${visibleItems} projek ${filterName}`, 'info');
+            }
+        } else {
+            showNotification(`Menunjukkan semua ${visibleItems} projek ${filterName}`, 'info');
+        }
     }
 }
 
@@ -257,26 +346,11 @@ function openProjectModal(projectId, modalBody) {
 
 /**
  * Initialize Load More Functionality
+ * Note: This is now handled within the initializeGalleryFilter function
  */
 function initializeLoadMore() {
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    
-    if (!loadMoreBtn) return;
-    
-    loadMoreBtn.addEventListener('click', function() {
-        // Simulate loading more projects
-        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
-        this.disabled = true;
-        
-        setTimeout(() => {
-            if (typeof showNotification === 'function') {
-                showNotification('All projects loaded!', 'success');
-            } else {
-                alert('All projects loaded!');
-            }
-            this.innerHTML = '<i class="fas fa-check"></i> All Projects Loaded';
-        }, 1500);
-    });
+    // The load more functionality is now handled in the gallery filter function
+    // This function is kept for backward compatibility
 }
 
 // Add CSS for modal content
