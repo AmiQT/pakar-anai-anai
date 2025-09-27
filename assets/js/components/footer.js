@@ -30,7 +30,6 @@ class FooterComponent {
                                     <li><a href="${this.getLinkPath('')}">Homepage</a></li>
                                     <li><a href="${this.getLinkPath('pages/about.html')}">About Us</a></li>
                                     <li><a href="${this.getLinkPath('pages/services.html')}">Services</a></li>
-                                    <li><a href="${this.getLinkPath('pages/products.html')}">Products</a></li>
                                     <li><a href="${this.getLinkPath('pages/contact.html')}">Contact Us</a></li>
                                 </ul>
                             </div>

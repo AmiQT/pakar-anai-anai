@@ -47,10 +47,6 @@
       "destination": "/pages/services.html"
     },
     {
-      "source": "/products",
-      "destination": "/pages/products.html"
-    },
-    {
       "source": "/contact",
       "destination": "/pages/contact.html"
     },

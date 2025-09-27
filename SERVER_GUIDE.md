@@ -73,7 +73,6 @@ Saya dah create `.vscode/settings.json` untuk configure Live Server properly:
 | `/about` | `/pages/about.html` |
 | `/services` | `/pages/services.html` |
 | `/contact` | `/pages/contact.html` |
-| `/products` | `/pages/products.html` |
 | `/booking` | `/pages/booking.html` |
 | `/testimoni` | `/pages/testimoni.html` |
 | `/gallery` | `/pages/gallery.html` |

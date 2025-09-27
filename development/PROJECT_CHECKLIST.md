@@ -64,12 +64,6 @@
 - [ ] **Business Hours** - Clear availability
 - [ ] **Emergency Contact** - Highlighted for urgent needs
 
-### **🛒 Products Page (products.html)**
-- [ ] **Product Grid** - Visual product showcase
-- [ ] **Product Categories** - Organized by type/use
-- [ ] **Product Details** - Specifications and benefits
-- [ ] **Purchase CTAs** - Clear buying process
-- [ ] **Related Products** - Cross-selling opportunities
 
 ### **📅 Booking Page (booking.html)**
 - [ ] **Booking Form** - Enhanced UX and flow

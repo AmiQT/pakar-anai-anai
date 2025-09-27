@@ -23,7 +23,6 @@ Akan auto buka `http://localhost:3000`.
 - `/`  `index.html`
 - `/about`  `pages/about.html`
 - `/services`  `pages/services.html`
-- `/products`  `pages/products.html`
 - `/contact`  `pages/contact.html`
 - `/booking`  `pages/booking.html`
 - `/testimoni`  `pages/testimoni.html`

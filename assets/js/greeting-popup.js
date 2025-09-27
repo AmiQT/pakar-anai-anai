@@ -19,10 +19,10 @@ class GreetingPopup {
             return;
         }
         
-        // Configuration for QUICK popup trigger
+        // Configuration for 50% scroll trigger
         this.config = {
-            timeThreshold: window.innerWidth <= 768 ? 5000 : 3000, // MUCH FASTER: 3s desktop, 5s mobile
-            scrollThreshold: 0.05, // MINIMAL scroll: 5% only (very light touch)
+            timeThreshold: 2000, // 2 seconds minimum time on page
+            scrollThreshold: 0.5, // 50% scroll required
             hasEngaged: false,
             timeOnPage: 0,
             scrollProgress: 0,
@@ -35,10 +35,10 @@ class GreetingPopup {
     }
     
     init() {
-        // Check if dismissed in current session only
-        // REMOVED session blocking - popup will show on EVERY page load/refresh
-        // This ensures popup appears every time user visits or refreshes homepage
-        console.log('Popup will trigger on every homepage visit/refresh');
+        // Clear any previous session storage to ensure popup shows every time
+        sessionStorage.removeItem('kme-popup-dismissed-session');
+        
+        console.log('Popup will trigger after 50% scroll + 2s on page');
         
         // Setup tracking
         this.setupTimeTracking();
@@ -46,14 +46,14 @@ class GreetingPopup {
         this.setupEngagementTracking();
         this.setupEventHandlers();
         
-        console.log('Greeting popup initialized - 20% scroll, shows on refresh');
+        console.log('Greeting popup initialized - 50% scroll trigger');
     }
     
     setupTimeTracking() {
         this.timeTracker = setInterval(() => {
             this.config.timeOnPage = Date.now() - this.config.startTime;
             this.checkTriggers();
-        }, 1000);
+        }, 100); // Check every 100ms for faster response
     }
     
     setupScrollTracking() {
@@ -62,8 +62,8 @@ class GreetingPopup {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             this.config.scrollProgress = Math.min(scrollTop / docHeight, 1);
             
-            // Mark as engaged if user scrolls ANY amount (immediate engagement)
-            if (this.config.scrollProgress > 0.01) { // Just 1% scroll = engaged
+            // Mark as engaged if user scrolls at least 10%
+            if (this.config.scrollProgress > 0.1) { // 10% scroll = engaged
                 this.config.hasEngaged = true;
             }
             
@@ -130,8 +130,21 @@ class GreetingPopup {
     }
     
     checkTriggers() {
+        console.log('Checking triggers:', {
+            isShown: this.config.isShown,
+            isDismissed: this.config.isDismissed,
+            hasEngaged: this.config.hasEngaged,
+            timeOnPage: this.config.timeOnPage,
+            timeThreshold: this.config.timeThreshold,
+            scrollProgress: this.config.scrollProgress,
+            scrollThreshold: this.config.scrollThreshold
+        });
+        
         if (this.shouldShow()) {
+            console.log('✅ Popup should show!');
             this.showPopup('greeting-trigger');
+        } else {
+            console.log('❌ Popup conditions not met');
         }
     }
     
@@ -166,8 +179,8 @@ class GreetingPopup {
         document.body.classList.remove('popup-open');
         this.config.isDismissed = true;
         
-        // Store dismissal for current session only (will show again on refresh)
-        sessionStorage.setItem('kme-popup-dismissed-session', 'true');
+        // Don't store dismissal - popup will show again on next page load
+        // sessionStorage.setItem('kme-popup-dismissed-session', 'true');
         
         // Complete cleanup
         this.stopChecking();
@@ -179,7 +192,7 @@ class GreetingPopup {
             });
         }
         
-        console.log('Greeting popup dismissed:', reason, '(will show again on refresh)');
+        console.log('Greeting popup dismissed:', reason, '(will show again on next page load)');
     }
     
     stopChecking() {
