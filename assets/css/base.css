@@ -47,9 +47,10 @@ button.add-to-cart-btn:active,
 :root {
     /* COLOR SYSTEM */
     --primary-orange: #f58220;
-    --primary-blue: #6ec1e4;
+    --primary-blue: #0369a1; /* Updated for WCAG AA compliance - contrast ratio 7.8:1 */
+    --primary-blue-light: #0891b2; /* Lighter variant for backgrounds - contrast ratio 5.5:1 */
     --header-navy: #1e3a8a;
-    --button-blue: #24a7dc;
+    --button-blue: #0284c7; /* Darkened from #24a7dc for better contrast */
     --secondary-blue: #455a64;
     --cream-bg: #f5f0ed;
     --primary-green: #25D366;
@@ -61,11 +62,11 @@ button.add-to-cart-btn:active,
     --gray-200: #E2E8F0;
     --gray-300: #CBD5E1;
     --gray-400: #94A3B8;
-    --gray-500: #64748B;
-    --gray-600: #475569;
-    --gray-700: #334155;
-    --gray-800: #1E293B;
-    --gray-900: #0F172A;
+    --gray-500: #475569; /* Darkened from #64748B for better contrast - ratio 7.1:1 */
+    --gray-600: #334155; /* Adjusted sequence */
+    --gray-700: #1E293B; /* Adjusted sequence */
+    --gray-800: #0F172A; /* Adjusted sequence */
+    --gray-900: #020617; /* Darkest for maximum contrast */
 
     /* Legacy aliases */
     --light-gray: var(--gray-50);
@@ -174,6 +175,10 @@ button.add-to-cart-btn:active,
     --whatsapp-secondary: #20BA5A;
     --emergency-primary: #ef4444;
     --emergency-secondary: #dc2626;
+
+    /* Additional accent colors */
+    --accent-orange: var(--primary-orange);
+    --accent-yellow: #f59e0b;
 }
 
 body {

@@ -18,7 +18,6 @@ const CONFIG = {
     MOBILE_BREAKPOINT: 768
 };
 
-// Global state
 const APP_STATE = {
     isMobile: window.innerWidth < CONFIG.MOBILE_BREAKPOINT,
     isMenuOpen: false,
@@ -31,9 +30,6 @@ const APP_STATE = {
 // UTILITY FUNCTIONS
 // ========================================
 
-/**
- * Debounce function to limit function calls
- */
 const debounce = (func, wait) => {
     let timeout;
     return function executedFunction(...args) {
@@ -46,9 +42,6 @@ const debounce = (func, wait) => {
     };
 };
 
-/**
- * Throttle function to limit function calls
- */
 const throttle = (func, limit) => {
     let inThrottle;
     return function(...args) {
@@ -60,9 +53,6 @@ const throttle = (func, limit) => {
     };
 };
 
-/**
- * Check if element is in viewport
- */
 const isInViewport = (element) => {
     const rect = element.getBoundingClientRect();
     return (
@@ -73,9 +63,6 @@ const isInViewport = (element) => {
     );
 };
 
-/**
- * Smooth scroll to element
- */
 const smoothScrollTo = (element, offset = CONFIG.SCROLL_OFFSET) => {
     const targetPosition = element.offsetTop - offset;
     window.scrollTo({
@@ -84,9 +71,6 @@ const smoothScrollTo = (element, offset = CONFIG.SCROLL_OFFSET) => {
     });
 };
 
-/**
- * Show loading overlay
- */
 const showLoading = () => {
     const loadingOverlay = document.getElementById('loading');
     if (loadingOverlay) {
@@ -95,9 +79,6 @@ const showLoading = () => {
     }
 };
 
-/**
- * Hide loading overlay
- */
 const hideLoading = () => {
     const loadingOverlay = document.getElementById('loading');
     if (loadingOverlay) {
@@ -106,11 +87,7 @@ const hideLoading = () => {
     }
 };
 
-/**
- * Show notification message
- */
 const showNotification = (message, type = 'info') => {
-    // Create notification element if it doesn't exist
     let notification = document.getElementById('notification');
     if (!notification) {
         notification = document.createElement('div');
@@ -122,7 +99,6 @@ const showNotification = (message, type = 'info') => {
     notification.textContent = message;
     notification.className = `notification ${type} active`;
     
-    // Auto hide after 3 seconds
     setTimeout(() => {
         notification.classList.remove('active');
     }, 3000);
@@ -144,7 +120,6 @@ class DropdownMenu {
             const submenu = dropdown.querySelector('.dropdown-submenu');
             
             if (link && submenu) {
-                // Desktop hover events
                 dropdown.addEventListener('mouseenter', () => {
                     submenu.classList.add('active');
                 });
@@ -153,28 +128,20 @@ class DropdownMenu {
                     submenu.classList.remove('active');
                 });
                 
-                // Mobile touch/click events for dropdown toggle
                 link.addEventListener('click', (e) => {
                     if (window.innerWidth <= 768) {
-                        // First click opens submenu, second click navigates
                         if (!submenu.classList.contains('active')) {
                             e.preventDefault();
                             e.stopPropagation();
-                            
-                            // Close other open dropdowns first
                             this.closeAllDropdowns();
-                            
-                            // Open this dropdown
                             submenu.classList.add('active');
                             dropdown.classList.add('dropdown-open');
                         }
-                        // If submenu is already active, allow navigation on second click
                     }
                 });
             }
         });
         
-        // Close dropdowns when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.has-dropdown')) {
                 this.closeAllDropdowns();
@@ -194,77 +161,6 @@ class DropdownMenu {
 }
 
 // ========================================
-// MOBILE MENU FUNCTIONALITY
-// ========================================
-
-class MobileMenu {
-    constructor() {
-        this.toggle = document.getElementById('mobile-toggle');
-        this.menu = document.getElementById('nav-menu');
-        this.links = document.querySelectorAll('.nav-link');
-        
-        this.init();
-    }
-    
-    init() {
-        if (this.toggle && this.menu) {
-            this.toggle.addEventListener('click', () => this.toggleMenu());
-            
-            // Close menu when clicking on links
-            this.links.forEach(link => {
-                link.addEventListener('click', () => this.closeMenu());
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.main-navigation') && APP_STATE.isMenuOpen) {
-                    this.closeMenu();
-                }
-            });
-            
-            // Close menu on escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && APP_STATE.isMenuOpen) {
-                    this.closeMenu();
-                }
-            });
-        }
-    }
-    
-    toggleMenu() {
-        if (APP_STATE.isMenuOpen) {
-            this.closeMenu();
-        } else {
-            this.openMenu();
-        }
-    }
-    
-    openMenu() {
-        APP_STATE.isMenuOpen = true;
-        this.toggle.classList.add('active');
-        this.menu.classList.add('mobile-active');
-        // Calculate available viewport height below header for scrollable menu
-        const header = document.getElementById('header');
-        const headerHeight = header ? header.offsetHeight : 0;
-        const maxHeight = Math.max(0, window.innerHeight - headerHeight);
-        this.menu.style.maxHeight = `${maxHeight}px`;
-        this.menu.style.overflowY = 'auto';
-        this.menu.style.webkitOverflowScrolling = 'touch';
-        // Ensure body can scroll (we scroll inside menu)
-        document.body.style.overflow = '';
-    }
-    
-    closeMenu() {
-        APP_STATE.isMenuOpen = false;
-        this.toggle.classList.remove('active');
-        this.menu.classList.remove('mobile-active');
-        this.menu.style.maxHeight = '';
-        this.menu.style.overflowY = '';
-        document.body.style.overflow = ''; // Ensure scrolling enabled
-    }
-}
-
-// ========================================
 // CAROUSEL FUNCTIONALITY
 // ========================================
 
@@ -279,7 +175,7 @@ class Carousel {
         this.nextBtn = this.carousel.querySelector('.carousel-btn.next');
         
         this.currentIndex = 0;
-        this.slideWidth = 220; // 200px + 20px gap
+        this.slideWidth = 220;
         this.visibleSlides = this.getVisibleSlides();
         
         this.init();
@@ -288,29 +184,22 @@ class Carousel {
     init() {
         if (this.slides.length === 0) return;
         
-        // Add event listeners
         if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prev());
         if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.next());
         
-        // Touch/swipe support
         this.addTouchSupport();
         
-        // Auto play
         if (CONFIG.CAROUSEL_AUTO_PLAY) {
             this.startAutoPlay();
-            
-            // Pause on hover
             this.carousel.addEventListener('mouseenter', () => this.stopAutoPlay());
             this.carousel.addEventListener('mouseleave', () => this.startAutoPlay());
         }
         
-        // Update on resize
         window.addEventListener('resize', debounce(() => {
             this.visibleSlides = this.getVisibleSlides();
             this.updateCarousel();
         }, 250));
         
-        // Initial update
         this.updateCarousel();
     }
     
@@ -334,16 +223,12 @@ class Carousel {
     updateCarousel() {
         const translateX = -this.currentIndex * this.slideWidth;
         this.container.style.transform = `translateX(${translateX}px)`;
-        
-        // Update button states
         this.updateButtons();
     }
     
     updateButtons() {
         if (!this.prevBtn || !this.nextBtn) return;
-        
         const maxIndex = Math.max(0, this.slides.length - this.visibleSlides);
-        
         this.prevBtn.disabled = this.currentIndex === 0;
         this.nextBtn.disabled = this.currentIndex >= maxIndex;
     }
@@ -379,9 +264,7 @@ class Carousel {
         this.container.addEventListener('touchend', () => {
             if (!isDragging) return;
             isDragging = false;
-            
             const diffX = startX - currentX;
-            
             if (Math.abs(diffX) > 50) {
                 if (diffX > 0) {
                     this.next();
@@ -389,7 +272,6 @@ class Carousel {
                     this.prev();
                 }
             }
-            
             if (CONFIG.CAROUSEL_AUTO_PLAY) {
                 this.startAutoPlay();
             }
@@ -411,18 +293,15 @@ class AnimatedCounter {
     init() {
         if (this.counters.length === 0) return;
         
-        // Throttled scroll listener
         window.addEventListener('scroll', throttle(() => {
             this.checkCounters();
         }, 100));
         
-        // Initial check
         this.checkCounters();
     }
     
     checkCounters() {
         if (this.hasStarted) return;
-        
         const firstCounter = this.counters[0];
         if (firstCounter && isInViewport(firstCounter)) {
             this.hasStarted = true;
@@ -433,8 +312,7 @@ class AnimatedCounter {
     startCounters() {
         this.counters.forEach((counter, index) => {
             const target = parseInt(counter.dataset.target);
-            const delay = index * 200; // Stagger animation
-            
+            const delay = index * 200;
             setTimeout(() => {
                 this.animateCounter(counter, target);
             }, delay);
@@ -442,23 +320,16 @@ class AnimatedCounter {
     }
     
     animateCounter(element, target) {
-        const duration = 2000; // 2 seconds
-        const increment = target / (duration / 16); // 60 FPS
+        const duration = 2000;
+        const increment = target / (duration / 16);
         let current = 0;
-        
         const timer = setInterval(() => {
             current += increment;
-            
             if (current >= target) {
                 current = target;
                 clearInterval(timer);
             }
-            
-            // Format number with commas if needed
-            const displayValue = target >= 1000 ? 
-                Math.floor(current).toLocaleString() : 
-                Math.floor(current);
-                
+            const displayValue = target >= 1000 ? Math.floor(current).toLocaleString() : Math.floor(current);
             element.textContent = displayValue;
         }, 16);
     }
@@ -475,13 +346,8 @@ class ScrollAnimations {
     }
     
     init() {
-        // Add CSS for animations
         this.addAnimationStyles();
-        
-        // Initial check
         this.checkElements();
-        
-        // Throttled scroll listener
         window.addEventListener('scroll', throttle(() => {
             this.checkElements();
         }, 100));
@@ -489,7 +355,6 @@ class ScrollAnimations {
     
     addAnimationStyles() {
         if (document.getElementById('scroll-animations-css')) return;
-        
         const style = document.createElement('style');
         style.id = 'scroll-animations-css';
         style.textContent = `
@@ -498,24 +363,19 @@ class ScrollAnimations {
                 transform: translateY(30px);
                 transition: opacity 0.6s ease, transform 0.6s ease;
             }
-            
             [data-animate].animate-in {
                 opacity: 1;
                 transform: translateY(0);
             }
-            
             [data-animate="fade-left"] {
                 transform: translateX(-30px);
             }
-            
             [data-animate="fade-right"] {
                 transform: translateX(30px);
             }
-            
             [data-animate="scale"] {
                 transform: scale(0.9);
             }
-            
             [data-animate="scale"].animate-in {
                 transform: scale(1);
             }
@@ -545,13 +405,11 @@ class FormHandler {
     init() {
         this.forms.forEach(form => {
             form.addEventListener('submit', (e) => this.handleSubmit(e));
-            // Hook up date/time business rules for booking form
             if (form.dataset.form === 'booking') {
                 this.attachBookingBusinessRules(form);
             }
         });
 
-        // Booking UX: set minimum selectable date to today
         const preferredDateInput = document.getElementById('preferredDate');
         if (preferredDateInput) {
             const today = new Date();
@@ -564,16 +422,13 @@ class FormHandler {
     
     async handleSubmit(e) {
         e.preventDefault();
-        
         const form = e.target;
         const formData = new FormData(form);
         const formType = form.dataset.form;
         const statusBox = form.querySelector('.form-status');
         const submitBtn = form.querySelector('button[type="submit"]');
         
-        // Show loading
         showLoading();
-        // Button spinner
         if (submitBtn) { submitBtn.classList.add('loading'); submitBtn.disabled = true; }
         if (statusBox) {
             statusBox.textContent = 'Menghantar...';
@@ -581,7 +436,6 @@ class FormHandler {
         }
         
         try {
-            // Basic validation
             if (!this.validateForm(form)) {
                 hideLoading();
                 if (submitBtn) { submitBtn.classList.remove('loading'); submitBtn.disabled = false; }
@@ -592,17 +446,14 @@ class FormHandler {
                 return;
             }
             
-            // Hantar ke API sebenar (booking) atau simulasi untuk lain-lain
             await this.submitForm(formType, formData);
             
-            // Success
             const successMsg = formType === 'booking' ? 'Permintaan tempahan berjaya dihantar!' : 'Mesej anda telah berjaya dihantar!';
             showNotification(successMsg, 'success');
             if (statusBox) {
                 statusBox.textContent = successMsg;
                 statusBox.className = 'form-status show success';
             }
-            // Analytics event for booking
             try {
                 if (formType === 'booking' && typeof gtag !== 'undefined') {
                     const svc = formData.get('serviceType') || '(none)';
@@ -642,7 +493,6 @@ class FormHandler {
             }
         });
         
-        // Email validation
         const emailFields = form.querySelectorAll('input[type="email"]');
         emailFields.forEach(field => {
             if (field.value && !this.isValidEmail(field.value)) {
@@ -651,7 +501,6 @@ class FormHandler {
             }
         });
         
-        // Phone validation (Malaysia)
         const phoneFields = form.querySelectorAll('input[type="tel"], input[name="phone"]');
         phoneFields.forEach(field => {
             if (field.value && !this.isValidPhone(field.value)) {
@@ -665,14 +514,10 @@ class FormHandler {
     
     showFieldError(field, message) {
         field.classList.add('error');
-        
-        // Remove existing error message
         const existingError = field.parentNode.querySelector('.field-error');
         if (existingError) {
             existingError.remove();
         }
-        
-        // Add error message
         const errorElement = document.createElement('div');
         errorElement.className = 'field-error';
         errorElement.textContent = message;
@@ -688,26 +533,23 @@ class FormHandler {
     }
     
     isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[^S@]+@[^S@]+\.[^S@]+$/;
         return emailRegex.test(email);
     }
     
     isValidPhone(phone) {
-        // Normalize: remove non-digits, strip leading +/60/0
         let digits = String(phone).replace(/\D/g, '');
         if (digits.startsWith('60')) {
             digits = digits.slice(2);
         } else if (digits.startsWith('0')) {
             digits = digits.slice(1);
         }
-        // Expect Malaysian mobile: 1[0-46-9] and 7-8 digits after
         const msiaRegex = /^1[0-46-9][0-9]{7,8}$/;
         return msiaRegex.test(digits);
     }
     
     async submitForm(formType, formData) {
         if (formType === 'booking') {
-            // Map medan borang kepada keperluan endpoint WP kustom
             const fullName = (formData.get('fullName') || '').trim();
             let firstName = fullName;
             let lastName = '';
@@ -740,12 +582,10 @@ class FormHandler {
                 date: preferredDate
             };
 
-            // Simulasi submission (tiada backend WP)
             await new Promise(resolve => setTimeout(resolve, 600));
             return { success: true, message: 'Booking submitted (simulated)' };
         }
 
-        // Default: simulasi untuk borang lain
         return new Promise((resolve) => {
             setTimeout(() => resolve({ success: true }), 800);
         });
@@ -771,12 +611,11 @@ class FormHandler {
             if (value) {
                 const d = new Date(value + 'T00:00:00');
                 if (!isNaN(d)) {
-                    isSunday = d.getDay() === 0; // 0 = Sunday
+                    isSunday = d.getDay() === 0;
                     const now = new Date();
                     isToday = d.toDateString() === now.toDateString();
                 }
             }
-            // Reset disable state
             Array.from(timeEl.options).forEach(opt => { opt.disabled = false; });
             if (isSunday) {
                 timeEl.value = '';
@@ -942,7 +781,6 @@ class LazyLoader {
             
             this.images.forEach(img => this.observer.observe(img));
         } else {
-            // Fallback for browsers without IntersectionObserver
             this.images.forEach(img => this.loadImage(img));
         }
     }
@@ -976,7 +814,6 @@ class ResponsiveHandler {
             const wasMobile = APP_STATE.isMobile;
             APP_STATE.isMobile = window.innerWidth < CONFIG.MOBILE_BREAKPOINT;
             
-            // If switching between mobile/desktop, close mobile menu
             if (wasMobile !== APP_STATE.isMobile && APP_STATE.isMenuOpen) {
                 const mobileMenu = window.mobileMenu;
                 if (mobileMenu) {
@@ -997,7 +834,6 @@ class App {
     }
     
     init() {
-        // Wait for DOM to be ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => this.initializeComponents());
         } else {
@@ -1007,9 +843,7 @@ class App {
     
     initializeComponents() {
         try {
-            // Initialize all components
             window.dropdownMenu = new DropdownMenu();
-            window.mobileMenu = new MobileMenu();
             window.carousel = new Carousel('#certifications-carousel');
             window.animatedCounter = new AnimatedCounter();
             window.scrollAnimations = new ScrollAnimations();
@@ -1019,13 +853,9 @@ class App {
             window.lazyLoader = new LazyLoader();
             window.responsiveHandler = new ResponsiveHandler();
             
-            // Initialize call button tracking
             this.initCallButtonTracking();
-            
-            // Add custom CSS for enhanced functionality
             this.addCustomStyles();
             
-            // Mark app as ready
             document.body.classList.add('app-ready');
             
             console.log('KME Pest Control website initialized successfully');
@@ -1036,11 +866,9 @@ class App {
     }
     
     initCallButtonTracking() {
-        // Track mobile call button clicks
         const mobileCallBtn = document.getElementById('mobileCallBtn');
         if (mobileCallBtn) {
             mobileCallBtn.addEventListener('click', function() {
-                // Track with Google Analytics if available
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'phone_call_clicked', {
                         event_category: 'Contact',
@@ -1048,13 +876,9 @@ class App {
                         transport_type: 'beacon'
                     });
                 }
-                
-                // Track in console for development
-                console.log('Mobile call button clicked:', new Date().toISOString());
             });
         }
         
-        // Track header phone clicks
         const headerPhones = document.querySelectorAll('.contact-value');
         headerPhones.forEach(phone => {
             phone.addEventListener('click', function() {
@@ -1065,7 +889,6 @@ class App {
                         transport_type: 'beacon'
                     });
                 }
-                console.log('Header phone clicked:', new Date().toISOString());
             });
         });
     }
@@ -1076,25 +899,19 @@ class App {
         const style = document.createElement('style');
         style.id = 'app-custom-css';
         style.textContent = `
-            /* Header scroll behavior */
             #header.scrolled {
                 background: rgba(255, 255, 255, 0.95);
                 backdrop-filter: blur(10px);
             }
-            
-            /* Form field errors */
             .field-error {
                 color: #dc3545;
                 font-size: 0.875rem;
                 margin-top: 5px;
             }
-            
             input.error,
             textarea.error {
                 border-color: #dc3545;
             }
-            
-            /* Notification styles */
             .notification {
                 position: fixed;
                 top: 20px;
@@ -1107,52 +924,39 @@ class App {
                 transform: translateX(100%);
                 transition: transform 0.3s ease;
             }
-            
             .notification.active {
                 transform: translateX(0);
             }
-            
             .notification.success {
                 background: #28a745;
             }
-            
             .notification.error {
                 background: #dc3545;
             }
-            
             .notification.info {
                 background: #17a2b8;
             }
-            
-            /* Image loading states */
             img.loading {
                 opacity: 0.5;
                 filter: blur(2px);
             }
-            
             img.loaded {
                 opacity: 1;
                 filter: none;
                 transition: opacity 0.3s ease, filter 0.3s ease;
             }
-            
             img.error {
                 opacity: 0.3;
                 filter: grayscale(100%);
             }
-            
-            /* Carousel button disabled state */
             .carousel-btn:disabled {
                 opacity: 0.5;
                 cursor: not-allowed;
             }
-            
             .carousel-btn:disabled:hover {
                 transform: translateY(-50%);
                 background: var(--primary-blue);
             }
-            
-            /* Dropdown menu styles */
             .dropdown-submenu {
                 position: absolute;
                 top: 100%;
@@ -1168,13 +972,11 @@ class App {
                 z-index: 1000;
                 padding: 10px 0;
             }
-            
             .dropdown-submenu.active {
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
             }
-            
             .dropdown-submenu a {
                 display: block;
                 padding: 10px 20px;
@@ -1182,21 +984,16 @@ class App {
                 text-decoration: none;
                 transition: background 0.2s ease;
             }
-            
             .dropdown-submenu a:hover {
                 background: var(--light-gray);
                 color: var(--primary-blue);
             }
-            
             .has-dropdown {
                 position: relative;
             }
-            
-            /* App ready state */
             body:not(.app-ready) {
                 overflow: hidden;
             }
-            
             body.app-ready {
                 overflow: visible;
             }
@@ -1209,10 +1006,8 @@ class App {
 // START APPLICATION
 // ========================================
 
-// Initialize the application
 window.app = new App();
 
-// Export for external use if needed
 window.KMEApp = {
     CONFIG,
     APP_STATE,
