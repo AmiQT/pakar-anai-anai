@@ -38,7 +38,6 @@ const routes = {
     '/about': '/pages/about.html',
     '/services': '/pages/services.html',
     '/contact': '/pages/contact.html',
-    '/booking': '/pages/booking.html',
     '/testimoni': '/pages/testimoni.html',
     '/gallery': '/pages/gallery.html'
 };

@@ -51,10 +51,6 @@
       "destination": "/pages/contact.html"
     },
     {
-      "source": "/booking",
-      "destination": "/pages/booking.html"
-    },
-    {
       "source": "/testimoni",
       "destination": "/pages/testimoni.html"
     },

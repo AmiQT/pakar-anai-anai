@@ -91,6 +91,27 @@
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle depth */
     }
 }
+
+.hero-subtitle-year {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    text-align: left;
+    letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+    .hero-subtitle-year {
+        font-size: clamp(2rem, 6vw, 2.5rem);
+        font-weight: 900;
+        line-height: 1.15;
+        margin-bottom: 20px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+}
+
 .value-subtitle {
     font-size: 1.2rem;
     color: var(--medium-gray);
@@ -469,6 +490,15 @@
     .stat-icon i {
         font-size: 1.4rem;
     }
+    
+    /* Awani Video Tablet */
+    .awani-video-card .video-info h4 {
+        font-size: 1.3rem; /* Slightly smaller for tablets */
+    }
+    
+    .awani-video-card .video-info h4 i {
+        font-size: 1.2rem;
+    }
 }
 @media (max-width: 768px) {
     .stats-grid {
@@ -636,7 +666,6 @@
     position: relative;
     overflow: hidden;
     min-height: 320px;
-}
     display: flex;
     flex-direction: column;
 }
@@ -682,15 +711,17 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 1.5rem; /* Slightly larger for bigger card */
+    font-size: 1.5rem; /* Reduced for single-line fit */
     color: var(--black);
     margin-bottom: 1px;
-    font-weight: 700;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.2; /* Tighter line height */
 }
 
 .awani-video-card .video-info h4 i {
     color: var(--primary-orange);
-    font-size: 1.3rem; /* Proportional icon size */
+    font-size: 1.4rem; /* Proportional to text size */
 }
 
 .media-badge {
@@ -3702,8 +3733,16 @@ body.popup-open {
     letter-spacing: 1px;
 }
 
+.popup-title-line1 {
+    font-size: 28px;
+}
+
+.popup-title-line2 {
+    font-size: 28px;
+}
+
 .popup-subtitle-yellow {
-    font-size: 22px;
+    font-size: 28px;
     color: #FFD700;
     margin-bottom: 20px;
     font-weight: 600;
@@ -3720,7 +3759,7 @@ body.popup-open {
 }
 
 .popup-message-emphasis {
-    font-size: 32px;
+    font-size: 24px;  /* Reduced from 32px to fit in box */
     color: #DC143C;
     background: white;
     padding: 12px 20px;
@@ -3728,9 +3767,23 @@ body.popup-open {
     margin: 15px 0 25px 0;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;  /* Reduced letter spacing */
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: flex;
+    flex-wrap: wrap;  /* Allow wrapping if needed */
+    justify-content: center;
+    align-items: center;
+    gap: 8px;  /* Reduced gap */
 }
+
+.popup-emphasis-text {
+    font-size: 24px;  /* Reduced from 32px */
+}
+
+.popup-emphasis-highlight {
+    font-size: 24px;  /* Reduced from 32px */
+}
+
 .popup-whatsapp-btn {
     background: #25D366;  /* WhatsApp green */
     color: var(--white);
@@ -3776,11 +3829,22 @@ body.popup-open {
     /* Awani Video Mobile */
     .awani-video-card {
         max-width: 100%; /* Full width on mobile */
+        padding: 12px; /* Reduced padding for mobile */
+        min-height: auto; /* Remove fixed height on mobile */
+    }
+    
+    .awani-video-card .facebook-video-container {
+        margin-bottom: 8px; /* Reduced margin for mobile */
+        border-radius: 12px; /* Slightly smaller radius */
+    }
+    
+    .awani-video-card .video-info {
+        padding: 8px 0 4px; /* Reduced top/bottom padding */
     }
     
     .awani-video-card .video-info h4 {
         font-size: 1rem;
-        margin-bottom: 10px;
+        margin-bottom: 5px; /* Reduced margin */
     }
     
     .video-badge {
@@ -3859,8 +3923,14 @@ body.popup-open {
         font-size: 22px;
         margin-bottom: 12px;
     }
+    
+    .popup-title-line1,
+    .popup-title-line2 {
+        font-size: 22px;
+    }
+    
     .popup-subtitle-yellow {
-        font-size: 18px;
+        font-size: 22px;
         margin-bottom: 15px;
     }
     .popup-message-regular {
@@ -3868,9 +3938,16 @@ body.popup-open {
         margin-bottom: 8px;
     }
     .popup-message-emphasis {
-        font-size: 24px;
-        padding: 10px 15px;
-        margin: 12px 0 20px 0;
+        font-size: 18px;  /* Smaller for mobile screens */
+        padding: 8px 12px;
+        margin: 10px 0 15px 0;
+        gap: 6px;
+        letter-spacing: 0.3px;
+    }
+    
+    .popup-emphasis-text,
+    .popup-emphasis-highlight {
+        font-size: 18px;  /* Match parent size */
     }
 }
 /* ========================================

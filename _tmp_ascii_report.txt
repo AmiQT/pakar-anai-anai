@@ -1,0 +1,75 @@
+index.html:212:★:<div class="rating">★★★★★</div>
+index.html:234:★:<div class="rating">★★★★★</div>
+index.html:256:★:<div class="rating">★★★★★</div>
+index.html:544:★:<div class="rating">★★★★★</div>
+index.html:550:★:<div class="rating">★★★★★</div>
+index.html:556:★:<div class="rating">★★★★★</div>
+server.js:186:🏠:<a href="/" class="btn">🏠 Kembali ke Homepage</a>
+server.js:197:🚀:console.log('\n🚀 KME Pest Control - Development Server');
+server.js:199:🌐:console.log(`🌐 Server: http://${HOST}:${PORT}`);
+server.js:200:📁:console.log(`📁 Root: ${__dirname}`);
+server.js:201:🔄:console.log('🔄 Live reload: Manual refresh required');
+server.js:220:🌐:console.log(`🌐 Browser opened: ${url}\n`);
+server.js:232:🛑:console.log('\n\n🛑 Shutting down server...');
+server.js:234:✅:console.log('✅ Server closed');
+pages\gallery.html:752:★:<div class="rating">★★★★★</div>
+pages\gallery.html:774:★:<div class="rating">★★★★★</div>
+pages\gallery.html:796:★:<div class="rating">★★★★★</div>
+pages\services.html:304:⚠:<span><strong>⚠ URGENT ACTION NEEDED!</strong> Anai-anai damage doubles every 6 months. Act now sebelum too late!</span>
+pages\testimoni.html:423:★:<div class="rating">★★★★★</div>
+pages\testimoni.html:445:★:<div class="rating">★★★★★</div>
+pages\testimoni.html:467:★:<div class="rating">★★★★★</div>
+kme-react\src\components\PageContent.tsx:473:£àΓ:<div className="benefit">Γ£à Pemeriksaan PERCUMA</div>
+kme-react\src\components\PageContent.tsx:474:£àΓ:<div className="benefit">Γ£à Response 24 jam</div>
+kme-react\src\components\PageContent.tsx:475:£àΓ:<div className="benefit">Γ£à Sijil Jaminan</div>
+kme-react\src\components\PageContent.tsx:488:ÇóΓ:<span>Licensed ΓÇó Insured ΓÇó 15+ Years Experience</span>
+kme-react\src\components\PageContent.tsx:549:ù├:<button className="popup-close" id="closePopup">├ù</button>
+kme-react\public\pages\contact.html:124: :<br>untuk dapatkan cadangan penyelesaiaan terbaik.
+kme-react\public\pages\contact.html:478:©:<p>© 2024 KME Pest Control. All rights reserved.</p>
+kme-react\public\pages\gallery.html:752:★:<div class="rating">★★★★★</div>
+kme-react\public\pages\gallery.html:774:★:<div class="rating">★★★★★</div>
+kme-react\public\pages\gallery.html:796:★:<div class="rating">★★★★★</div>
+kme-react\public\pages\services.html:304:⚠:<span><strong>⚠ URGENT ACTION NEEDED!</strong> Anai-anai damage doubles every 6 months. Act now sebelum too late!</span>
+kme-react\public\pages\testimoni.html:423:★:<div class="rating">★★★★★</div>
+kme-react\public\pages\testimoni.html:445:★:<div class="rating">★★★★★</div>
+kme-react\public\pages\testimoni.html:467:★:<div class="rating">★★★★★</div>
+kme-react\public\assets\css\main.css:50:🎨:/* 🎨 COLOR SYSTEM - Comprehensive Palette */
+kme-react\public\assets\css\main.css:87:🎨:/* 🎨 TYPOGRAPHY SYSTEM - Comprehensive Scale */
+kme-react\public\assets\css\main.css:119:🎯:/* 🎯 SPACING SYSTEM - Consistent Layout */
+kme-react\public\assets\css\main.css:146:🎯:/* 🎯 BORDER RADIUS SYSTEM */
+kme-react\public\assets\css\main.css:161:✨:/* ✨ SHADOW SYSTEM - Professional Depth */
+kme-react\public\assets\css\main.css:180:🔥:/* 🔥 STANDARDIZED CTA COLORS */
+kme-react\public\assets\css\main.css:188:🎯:🎯 STANDARDIZED CTA BUTTON SYSTEM
+kme-react\public\assets\css\main.css:457:🎯:🎯 STANDARDIZED LAYOUT CLASSES
+kme-react\public\assets\css\main.css:499:🎨:🎨 STANDARDIZED COMPONENT CLASSES
+kme-react\public\assets\css\main.css:1120:🎨:/* 🎨 GLOBAL HEADINGS - Using Design System */
+kme-react\public\assets\css\main.css:2531:⭐:content: '⭐ BEST VALUE';
+kme-react\public\assets\css\main.css:8294:✓:content: '✓';
+kme-react\public\assets\css\main.css:9852:✓:content: "✓";
+kme-react\public\assets\js\animations-phase3.js:728:🔒:// this.particleSystem = new ParticleSystem(); // 🔒 Disabled - Removed moving circles
+kme-react\public\assets\js\animations-phase3.js:732:🔒:// this.performanceMonitor = new PerformanceMonitor(); // 🔒 Performance monitor disabled
+kme-react\public\assets\js\gallery.js:453:✓:content: '✓';
+kme-react\public\assets\js\utils\scroll-snap.js:1:﻿:﻿(function(){function update(){var h=document.getElementById("header");var hh=h? h.offsetHeight:0;document.documentEleme
+kme-react\public\assets\js\utils\skeleton.js:1:﻿:﻿(function(){function a(e){e.classList.add("skeleton")}function n(e){e.classList.remove("skeleton")}function s(e){if(e.c
+kme-react\public\assets\css\pages\index.css:1:﻿:﻿/* ========================================
+kme-react\public\assets\css\pages\index.css:1539:­â:content: 'â­ BEST VALUE';
+assets\css\main.css:50:🎨:/* 🎨 COLOR SYSTEM - Comprehensive Palette */
+assets\css\main.css:87:🎨:/* 🎨 TYPOGRAPHY SYSTEM - Comprehensive Scale */
+assets\css\main.css:119:🎯:/* 🎯 SPACING SYSTEM - Consistent Layout */
+assets\css\main.css:146:🎯:/* 🎯 BORDER RADIUS SYSTEM */
+assets\css\main.css:161:✨:/* ✨ SHADOW SYSTEM - Professional Depth */
+assets\css\main.css:180:🔥:/* 🔥 STANDARDIZED CTA COLORS */
+assets\css\main.css:188:🎯:🎯 STANDARDIZED CTA BUTTON SYSTEM
+assets\css\main.css:457:🎯:🎯 STANDARDIZED LAYOUT CLASSES
+assets\css\main.css:499:🎨:🎨 STANDARDIZED COMPONENT CLASSES
+assets\css\main.css:1120:🎨:/* 🎨 GLOBAL HEADINGS - Using Design System */
+assets\css\main.css:2531:⭐:content: '⭐ BEST VALUE';
+assets\css\main.css:8294:✓:content: '✓';
+assets\css\main.css:9852:✓:content: "✓";
+assets\js\animations-phase3.js:728:🔒:// this.particleSystem = new ParticleSystem(); // 🔒 Disabled - Removed moving circles
+assets\js\animations-phase3.js:732:🔒:// this.performanceMonitor = new PerformanceMonitor(); // 🔒 Performance monitor disabled
+assets\js\gallery.js:453:✓:content: '✓';
+assets\js\utils\scroll-snap.js:1:﻿:﻿(function(){function update(){var h=document.getElementById("header");var hh=h? h.offsetHeight:0;document.documentEleme
+assets\js\utils\skeleton.js:1:﻿:﻿(function(){function a(e){e.classList.add("skeleton")}function n(e){e.classList.remove("skeleton")}function s(e){if(e.c
+assets\css\pages\index.css:1:﻿:﻿/* ========================================
+assets\css\pages\index.css:1549:­â:content: 'â­ BEST VALUE';

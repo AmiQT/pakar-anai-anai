@@ -6,7 +6,7 @@ class FooterComponent {
 
     createFooterHTML() {
         return `
-            <footer id="footer">
+            <footer id="footer" data-generated-footer="true">
                 <div class="footer-top">
                     <div class="container">
                         <div class="footer-content">
@@ -19,7 +19,6 @@ class FooterComponent {
                                 <div class="footer-contact">
                                     <p><i class="fas fa-map-marker-alt"></i> A13, Ground Floor Lorong IM2, Bandar Indera Mahkota, 25200 Kuantan, Pahang</p>
                                     <p><i class="fas fa-phone"></i> +6011 2962 3741</p>
-                                    <p><i class="fas fa-envelope"></i> support@kmepest.com</p>
                                 </div>
                             </div>
 
@@ -55,7 +54,7 @@ class FooterComponent {
                                     <a href="https://www.instagram.com/kmepest/" target="_blank">
                                         <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a href="https://www.tiktok.com/@kmepestcontrol" target="_blank">
+                                    <a href="https://www.tiktok.com/@kme.pest.control?_t=ZS-90wRGAfsTQo&_r=1" target="_blank">
                                         <i class="fab fa-tiktok"></i>
                                     </a>
                                     <a href="https://www.youtube.com/@kmepestcontrol8065" target="_blank">
@@ -147,18 +146,20 @@ class FooterComponent {
 
     // Method to render footer
     render(targetSelector = 'body') {
-        // Remove existing footer if any
+        const placeholder = document.querySelector('[data-footer-placeholder]') || document.getElementById('footer-placeholder');
         const existingFooter = document.querySelector('#footer');
-        if (existingFooter) {
-            existingFooter.remove();
+
+        const mountTarget = placeholder || existingFooter;
+        
+        if (mountTarget) {
+            mountTarget.outerHTML = this.footerHTML;
+            return;
         }
 
-        // Insert footer HTML
         const targetElement = document.querySelector(targetSelector);
         if (targetElement) {
             targetElement.insertAdjacentHTML('beforeend', this.footerHTML);
         } else {
-            // Fallback: append to body
             document.body.insertAdjacentHTML('beforeend', this.footerHTML);
         }
     }
@@ -178,9 +179,6 @@ window.FooterComponent = FooterComponent;
 
 // Auto-initialize footer
 document.addEventListener('DOMContentLoaded', function() {
-    // Only initialize if no footer already exists
-    if (!document.querySelector('#footer')) {
-        const footer = new FooterComponent();
-        footer.render();
-    }
+    const footer = new FooterComponent();
+    footer.render();
 });

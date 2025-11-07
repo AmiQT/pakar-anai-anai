@@ -725,7 +725,7 @@ class Phase3Animations {
     initializeComponents() {
         try {
             this.advanced3DEffects = new Advanced3DEffects();
-            this.particleSystem = new ParticleSystem();
+            // this.particleSystem = new ParticleSystem(); // 🔒 Disabled - Removed moving circles
             this.complexParallax = new ComplexParallax();
             this.advancedCarousel = new AdvancedCarousel('#testimonials-carousel-3d');
             this.interactiveAnimations = new InteractiveAnimations();

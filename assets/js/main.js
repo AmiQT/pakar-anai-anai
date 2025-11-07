@@ -405,9 +405,10 @@ class FormHandler {
     init() {
         this.forms.forEach(form => {
             form.addEventListener('submit', (e) => this.handleSubmit(e));
-            if (form.dataset.form === 'booking') {
-                this.attachBookingBusinessRules(form);
-            }
+            // Booking form removed - all bookings now via WhatsApp
+            // if (form.dataset.form === 'booking') {
+            //     this.attachBookingBusinessRules(form);
+            // }
         });
 
         const preferredDateInput = document.getElementById('preferredDate');
