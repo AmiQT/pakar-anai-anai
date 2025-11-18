@@ -242,6 +242,12 @@ class Navigation {
     }
 }
 
+// Export class for React
+if (typeof window !== 'undefined') {
+    window.KMENavigation = Navigation;
+}
+
+// Auto-initialize for non-React pages
 if (typeof window !== 'undefined' && !window.navigationModule) {
     document.addEventListener('DOMContentLoaded', () => {
         window.navigationModule = new Navigation();

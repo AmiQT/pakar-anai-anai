@@ -38,7 +38,6 @@ class FooterComponent {
                                 <h3>Our Services</h3>
                                 <ul class="footer-links">
                                     <li><a href="${this.getLinkPath('pages/services.html#ST')}">Soil Treatment</a></li>
-                                    <li><a href="${this.getLinkPath('pages/services.html#BT')}">Bat Prevention</a></li>
                                     <li><a href="${this.getLinkPath('pages/services.html#CT')}">Corrective Treatment</a></li>
                                     <li><a href="${this.getLinkPath('pages/services.html')}">All Services</a></li>
                                 </ul>
@@ -54,11 +53,8 @@ class FooterComponent {
                                     <a href="https://www.instagram.com/kmepest/" target="_blank">
                                         <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a href="https://www.tiktok.com/@kme.pest.control?_t=ZS-90wRGAfsTQo&_r=1" target="_blank">
+                                    <a href="https://www.tiktok.com/@kme.pest.control?_r=1&_t=ZS-91SXqOgl1kt" target="_blank">
                                         <i class="fab fa-tiktok"></i>
-                                    </a>
-                                    <a href="https://www.youtube.com/@kmepestcontrol8065" target="_blank">
-                                        <i class="fab fa-youtube"></i>
                                     </a>
                                 </div>
                                 <p>Follow kami untuk tips dan updates terkini tentang kawalan serangga!</p>
@@ -145,20 +141,24 @@ class FooterComponent {
     }
 
     // Method to render footer
-    render(targetSelector = 'body') {
+    render(targetSelector = null) {
         // Remove existing footer if any
         const existingFooter = document.querySelector('#footer');
         if (existingFooter) {
             existingFooter.remove();
         }
 
-        // Insert footer HTML
-        const targetElement = document.querySelector(targetSelector);
-        if (targetElement) {
-            targetElement.insertAdjacentHTML('beforeend', this.footerHTML);
+        // Determine target: React container > custom selector > body
+        let target = null;
+        if (!targetSelector) {
+            target = document.querySelector('#footer-container') || document.querySelector('body');
         } else {
-            // Fallback: append to body
-            document.body.insertAdjacentHTML('beforeend', this.footerHTML);
+            target = document.querySelector(targetSelector) || document.querySelector('body');
+        }
+
+        // Insert footer HTML
+        if (target) {
+            target.insertAdjacentHTML('beforeend', this.footerHTML);
         }
     }
 

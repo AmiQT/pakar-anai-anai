@@ -29,9 +29,6 @@ const PageContent = () => (
           <a href="https://www.tiktok.com/@kme.pest.control?_t=ZS-90wRGAfsTQo&_r=1" target="_blank" className="social-icon" aria-label="Ikuti kami di TikTok">
             <i className="fa-brands fa-tiktok" />
           </a>
-          <a href="https://www.youtube.com/@kmepestcontrol8065" target="_blank" className="social-icon" aria-label="Ikuti kami di YouTube">
-            <i className="fa-brands fa-youtube" />
-          </a>
         </div>
       </div>
     </div>
@@ -48,7 +45,7 @@ const PageContent = () => (
             <a href="index.html" className="nav-link active">HOME</a>
           </li>
           <li className="nav-item has-dropdown">
-            <a href="javascript:void(0);" className="nav-link">
+            <a href="#" className="nav-link" onClick={(e) => e.preventDefault()}>
               ABOUT US <i className="fas fa-chevron-down dropdown-arrow" />
             </a>
             <ul className="dropdown-submenu">
@@ -58,7 +55,7 @@ const PageContent = () => (
             </ul>
           </li>
           <li className="nav-item has-dropdown">
-            <a href="javascript:void(0);" className="nav-link">
+            <a href="#" className="nav-link" onClick={(e) => e.preventDefault()}>
               SERVICES <i className="fas fa-chevron-down dropdown-arrow" />
             </a>
             <ul className="dropdown-submenu">
@@ -116,14 +113,13 @@ const PageContent = () => (
               {/* Featured Video - Awani */}
               <div className="awani-video-section">
                 <div className="video-testimonial-card awani-video-card">
-                  <div className="facebook-video-container">
-                    <iframe loading="lazy" title="Video Testimoni Pelanggan KME - Liputan Astro Awani" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffb.watch%2FC5QmQtmLXd%2F&show_text=false&width=560&t=0" width="100%" height={314} style={{border: 'none', overflow: 'hidden'}} scrolling="no" frameBorder={0} allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                    </iframe>
+                  <div className="facebook-video-container coming-soon-placeholder">
+                    {/* Video placeholder - Coming Soon */}
                   </div>
                   <div className="video-info">
                     <h4>
                       <i className="fas fa-tv" />
-                      LIPUTAN KHAS DI ASTRO AWANI
+                      COMING SOON
                     </h4>
                   </div>
                 </div>
@@ -135,7 +131,7 @@ const PageContent = () => (
     </section>
     {/* Trust Stats moved into Services Intro below */}
     {/* Maklum Balas Pelanggan - Facebook Video Testimonials */}
-    <section className="video-testimonials-section bg-alt" data-scroll-animation="fade-up">
+    <section className="video-testimonials-section" data-scroll-animation="fade-up">
       <div className="container">
         <div className="section-header" data-scroll-animation="fade-up">
           <h2>Maklum Balas Pelanggan</h2>
@@ -150,31 +146,31 @@ const PageContent = () => (
             <div className="video-info">
               <h3>MR KEITH KHOO</h3>
               <p className="testimonial-quote">"Testimoni pelanggan yang berpuas hati dengan servis KME Pest Control"</p>
-              <div className="rating"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+              <div className="rating"><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i></div>
             </div>
           </div>
-          {/* Video Testimonial 2 - PUAN SUHANA */}
+          {/* Video Testimonial 2 - ENCIK MUHYIDDIN */}
           <div className="video-testimonial-card" data-scroll-animation="fade-up" data-scroll-stagger>
             <div className="facebook-video-container">
-              <iframe loading="lazy" title="Video Testimoni Pelanggan - PUAN SUHANA" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffacebook.com%2FKMEpestcontrol%2Fvideos%2F1271253497687338%2F&show_text=false&width=560&t=0" width="100%" height={314} style={{border: 'none', overflow: 'hidden'}} scrolling="no" frameBorder={0} allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+              <iframe loading="lazy" title="Video Testimoni Pelanggan - ENCIK MUHYIDDIN" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1568372034144915%2F&show_text=false&width=560&t=0" width="100%" height={314} style={{border: 'none', overflow: 'hidden'}} scrolling="no" frameBorder={0} allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
               </iframe>
             </div>
             <div className="video-info">
-              <h3>PUAN SUHANA</h3>
+              <h3>ENCIK MUHYIDDIN</h3>
               <p className="testimonial-quote">"Pengalaman positif dengan servis profesional KME Pest Control"</p>
-              <div className="rating"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+              <div className="rating"><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i></div>
             </div>
           </div>
-          {/* Video Testimonial 3 - PUAN FATIMAH */}
+          {/* Video Testimonial 3 - MR. DIN */}
           <div className="video-testimonial-card" data-scroll-animation="fade-up" data-scroll-stagger>
             <div className="facebook-video-container">
-              <iframe loading="lazy" title="Video Testimoni Pelanggan - PUAN FATIMAH" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Ffacebook.com%2FKMEpestcontrol%2Fvideos%2F1063411679300948%2F&show_text=false&width=560&t=0" width="100%" height={314} style={{border: 'none', overflow: 'hidden'}} scrolling="no" frameBorder={0} allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+              <iframe loading="lazy" title="Video Testimoni Pelanggan - MR. DIN" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1821995905335865%2F&show_text=false&width=560&t=0" width="100%" height={314} style={{border: 'none', overflow: 'hidden'}} scrolling="no" frameBorder={0} allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
               </iframe>
             </div>
             <div className="video-info">
-              <h3>PUAN FATIMAH</h3>
+              <h3>MR. DIN</h3>
               <p className="testimonial-quote">"Berpuas hati dengan hasil rawatan dan servis yang diberikan"</p>
-              <div className="rating"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+              <div className="rating"><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i></div>
             </div>
           </div>
         </div>
@@ -191,7 +187,7 @@ const PageContent = () => (
       </div>
     </section>
     {/* Services Section - Clean CTA + Trust Stats Combined */}
-    <section className="services-intro bg-default" data-scroll-animation="fade-up">
+    <section className="services-intro" data-scroll-animation="fade-up">
       <div className="container">
         <h2 data-scroll-animation="fade-up">Kenapa Pilih KME?</h2>
         <p>Peneraju dalam industry kawalan serangga dengan komitmen memberikan servis terbaik untuk kebersihan dan keselamatan rumah anda.</p>
@@ -212,7 +208,7 @@ const PageContent = () => (
       </div>
     </section>
     {/* Main Services Section - Enhanced Design */}
-    <section className="main-services-section bg-alt">
+    <section className="main-services-section">
       <div className="container">
         <h2 style={{textAlign: 'center', marginBottom: 40, color: 'var(--black)'}}>MAIN SERVICES</h2>
         <div className="services-grid">
@@ -269,7 +265,7 @@ const PageContent = () => (
       </div>
     </section>
     {/* Law Protection Section - Numbered Steps */}
-    <section className="law-protection-section bg-default">
+    <section className="law-protection-section">
       <div className="container">
         <h2>LAW PROTECTION</h2>
         <div className="protection-steps">
@@ -291,7 +287,7 @@ const PageContent = () => (
       </div>
     </section>
     {/* Simplified Process Steps - 3 Key Steps */}
-    <section className="simple-process-section bg-alt">
+    <section className="simple-process-section">
       <div className="container">
         <div className="process-header">
           <h2>Cara Mudah Dapatkan Servis Kami</h2>
@@ -352,7 +348,7 @@ const PageContent = () => (
       </div>
     </section>
     {/* Professional Credentials - Enhanced Trust */}
-    <section className="credentials-section bg-default">
+    <section className="credentials-section">
       <div className="container">
         <div className="credentials-header">
           <h2>Government Approved &amp; Licensed</h2>
@@ -434,7 +430,7 @@ const PageContent = () => (
       </div>
     </section>
     {/* Testimonials List (simple cards) */}
-    <section className="home-testimonials-list bg-alt" data-scroll-animation="fade-up">
+    <section className="home-testimonials-list" data-scroll-animation="fade-up">
       <div className="container">
         <div className="section-header" data-scroll-animation="fade-up">
           <h2>Apa Kata Pelanggan</h2>
@@ -444,35 +440,35 @@ const PageContent = () => (
           <div className="testimonial-card">
             <div className="testimonial-content">
               <p>"Selepas rawatan KME, masalah selesai dan servis terbaik."</p>
-              <div className="rating"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+              <div className="rating"><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i></div>
             </div>
           </div>
           <div className="testimonial-card">
             <div className="testimonial-content">
               <p>"Team sangat profesional dan kemas bekerja."</p>
-              <div className="rating"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+              <div className="rating"><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i></div>
             </div>
           </div>
           <div className="testimonial-card">
             <div className="testimonial-content">
               <p>"Harga okay, hasil pun memuaskan."</p>
-              <div className="rating"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+              <div className="rating"><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i><i className="fas fa-star" aria-hidden="true"></i></div>
             </div>
           </div>
         </div>
       </div>
     </section>
     {/* Final CTA Section - Action Focused */}
-    <section className="final-cta-section bg-brand">
+    <section className="final-cta-section">
       <div className="container">
         <div className="final-cta-content">
           <div className="urgency-message">
             <h2>Jangan Tunggu Anai-Anai Rosakkan Rumah Anda!</h2>
             <p className="urgency-text">Semakin lewat rawatan, semakin besar kerosakan. Dapatkan pemeriksaan PERCUMA hari ini.</p>
             <div className="cta-benefits">
-              <div className="benefit">Γ£à Pemeriksaan PERCUMA</div>
-              <div className="benefit">Γ£à Response 24 jam</div>
-              <div className="benefit">Γ£à Sijil Jaminan</div>
+              <div className="benefit">✓ Pemeriksaan PERCUMA</div>
+              <div className="benefit">✓ Response 24 jam</div>
+              <div className="benefit">✓ Sijil Jaminan</div>
             </div>
             <div className="final-cta-buttons">
               <a href="https://wsap.to/kmepestcontrol" className="btn-whatsapp-primary" target="_blank">
@@ -485,7 +481,7 @@ const PageContent = () => (
             </div>
             <div className="trust-reminder">
               <i className="fas fa-shield-alt" />
-              <span>Licensed ΓÇó Insured ΓÇó 15+ Years Experience</span>
+              <span>Licensed • Insured • 15+ Years Experience</span>
             </div>
           </div>
         </div>
@@ -546,10 +542,19 @@ const PageContent = () => (
   {/* Popup Overlay - Auto Trigger */}
   <div className="popup-overlay" id="anaiPopup">
     <div className="popup-content">
-      <button className="popup-close" id="closePopup">├ù</button>
-      <h3 className="popup-title-white">
-        <span className="popup-title-line1">JANGAN TUNGGU</span><br />
-        <span className="popup-title-line2">RUMAH ANDA ROBOH</span>
+      <button className="popup-close" id="closePopup" aria-label="Tutup popup">
+        &times;
+      </button>
+      <h3 className="popup-title-white popup-title-grid">
+        <span className="popup-title-row">
+          <span className="popup-title-cell popup-title-cell-left">JANGAN</span>
+          <span className="popup-title-cell popup-title-cell-right">TUNGGU</span>
+        </span>
+        <span className="popup-title-row popup-title-row-words">
+          <span className="popup-title-word popup-title-word-left">RUMAH</span>
+          <span className="popup-title-word popup-title-word-center">ANDA</span>
+          <span className="popup-title-word popup-title-word-right">ROBOH</span>
+        </span>
       </h3>
       <h4 className="popup-subtitle-yellow">ANAI-ANAI MUSUH DALAM DIAM</h4>
       <p className="popup-message-regular">HUBUNGI KAMI UNTUK DAPATKAN</p>
@@ -559,15 +564,16 @@ const PageContent = () => (
         HUBUNGI PEST CONSULTANT
       </a>
     </div>
-  </div>
-  {/* Loading indicator */}
+  </div>  {/* Loading indicator */}
   <div id="loading" className="loading-overlay">
     <div className="loading-spinner" />
   </div>
-  {/* Load Greeting Popup Script */}
+  {/* Footer Component - Loaded by footer.js */}
+  <div id="footer-container" />
   </div>
 )
 
 export default PageContent
+
 
 

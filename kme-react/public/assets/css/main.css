@@ -51,7 +51,7 @@ button.add-to-cart-btn:active,
     /* Primary Brand Colors */
     --primary-orange: #f58220;          /* Main brand color dari database */
     --primary-blue: #6ec1e4;            /* Baby blue untuk icons */
-    --header-navy: #1e3a8a;             /* Navy blue untuk header background */
+    --header-navy: #29235C;             /* Navy blue untuk header background */
     --button-blue: #24a7dc;             /* Button blue dari live site */
     --secondary-blue: #455a64;          /* Secondary blue dari database */
     --cream-bg: #f5f0ed;                /* Body background dari live site */
@@ -463,12 +463,26 @@ body {
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 var(--space-5);
+    width: 100%; /* 🔥 CRITICAL: Prevent container from overflowing */
 }
 
-.container-sm { max-width: var(--container-sm); margin: 0 auto; }
-.container-md { max-width: var(--container-md); margin: 0 auto; }
-.container-lg { max-width: var(--container-lg); margin: 0 auto; }
-.container-xl { max-width: var(--container-xl); margin: 0 auto; }
+/* 🔥 MOBILE-FIRST: Responsive container padding */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px; /* Comfortable padding untuk phones */
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: 0 20px; /* Slightly larger untuk tablets */
+    }
+}
+
+.container-sm { max-width: var(--container-sm); margin: 0 auto; width: 100%; }
+.container-md { max-width: var(--container-md); margin: 0 auto; width: 100%; }
+.container-lg { max-width: var(--container-lg); margin: 0 auto; width: 100%; }
+.container-xl { max-width: var(--container-xl); margin: 0 auto; width: 100%; }
 
 /* Section Spacing */
 .section-padding { padding: var(--space-20) 0; }
@@ -581,14 +595,6 @@ body {
     --section-bg-default: var(--white);
     --section-bg-alt: #f8fafc;
     --section-bg-muted: #f3f4f6;
-}
-
-.bg-default {
-    background: var(--section-bg-default);
-}
-
-.bg-alt {
-    background: var(--cream-bg);
 }
 
 .bg-muted {
@@ -1798,6 +1804,16 @@ h6 {
 .awani-video-card .video-info h4 i {
     color: var(--primary-orange);
     font-size: 1.3rem; /* Proportional icon size */
+}
+
+/* Coming Soon Placeholder */
+.coming-soon-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 314px;
+    background: #f5f5f5;
+    border-radius: 12px;
 }
 
 .media-badge {
@@ -3689,7 +3705,7 @@ h6 {
 }
 .credentials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-bottom: 60px;
     align-items: stretch;
@@ -4066,6 +4082,16 @@ img.loading {
     transform: translateY(-3px);
     box-shadow: var(--shadow-xl);
     background: linear-gradient(135deg, #e67e22, #d35400);
+}
+
+/* Orange button utility */
+.btn-orange {
+    background: linear-gradient(135deg, var(--primary-orange), #e67e22) !important;
+    color: var(--white) !important;
+}
+
+.btn-orange:hover {
+    background: linear-gradient(135deg, #e67e22, #d35400) !important;
 }
 
 /* Contact Details Section */
@@ -4753,7 +4779,7 @@ body.popup-open {
 }
 
 .popup-message-emphasis {
-    font-size: 32px;
+    font-size: 24px;
     color: #DC143C;
     background: white;
     padding: 12px 20px;
@@ -4783,6 +4809,65 @@ body.popup-open {
     background: #128C7E;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.popup-title-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    text-align: left;
+}
+
+.popup-title-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+}
+
+.popup-title-cell {
+    flex: 1;
+    font-size: clamp(28px, 4vw, 36px);
+    letter-spacing: 1px;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.popup-title-cell-left {
+    text-align: left;
+}
+
+.popup-title-cell-right {
+    text-align: right;
+}
+
+.popup-title-row-words {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+
+.popup-title-word {
+    flex: 1;
+    font-size: clamp(22px, 4vw, 32px);
+    letter-spacing: 1px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.popup-title-word-left {
+    text-align: left;
+}
+
+.popup-title-word-center {
+    text-align: center;
+}
+
+.popup-title-word-right {
+    text-align: right;
 }
 /* ========================================
    RESPONSIVE DESIGN - Match Original
@@ -4814,6 +4899,33 @@ body.popup-open {
     .awani-video-card .video-info h4 {
         font-size: 1rem;
         margin-bottom: 10px;
+    }
+
+    .popup-title-grid {
+        align-items: center;
+        text-align: center;
+    }
+
+    .popup-title-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .popup-title-cell {
+        text-align: center;
+    }
+
+    .popup-title-row-words {
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+    }
+
+    .popup-title-word {
+        flex: unset;
+        width: 100%;
+        text-align: center;
+        white-space: normal;
     }
     
     .video-badge {
@@ -4910,8 +5022,8 @@ body.popup-open {
    HERO SECTION - Original Website Style
 ======================================== */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-    color: var(--white);
+    background: var(--white);
+    color: var(--gray-900);
     padding: 100px 0;
     min-height: 80vh;
     display: flex;
@@ -4926,8 +5038,8 @@ body.popup-open {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    opacity: 0.3;
+    background: transparent;
+    opacity: 0;
 }
 .hero-content {
     display: grid;
@@ -4939,6 +5051,7 @@ body.popup-open {
 }
 .hero-subtitle {
     font-size: 1.2rem;
+    color: var(--gray-600);
     opacity: 0.9;
     margin-bottom: 15px;
     font-weight: 400;
@@ -4949,8 +5062,8 @@ body.popup-open {
     font-weight: 900;
     margin-bottom: 30px;
     line-height: 1;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.15); /* Reduced but still visible on images */
-    color: white;
+    text-shadow: none;
+    color: var(--gray-900);
 }
 .hero-campaign {
     margin-bottom: 40px;
@@ -4975,6 +5088,7 @@ body.popup-open {
 .hero-description {
     font-size: 1.3rem;
     line-height: 1.7;
+    color: var(--gray-700);
     opacity: 0.95;
 }
 .highlight-voucher {
@@ -6918,9 +7032,9 @@ body.popup-open {
 
 .services-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-8);
-    max-width: 1000px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -9435,6 +9549,14 @@ section:last-child {
 .testimonial-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+.testimonial-card .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+    height: 1.5rem;
 }
 .testimonial-card.featured {
     border: 2px solid #3b82f6;
@@ -12271,4 +12393,102 @@ body.cart-open {
     opacity: 0 !important;
     position: absolute !important;
     left: -9999px !important;
+}
+
+/* ========================================
+   🔥 MOBILE-FIRST: Extra Safeguards
+   Additional protection untuk prevent overflow
+======================================== */
+
+/* Force all sections to stay within viewport */
+section,
+.section,
+[class*="section-"] {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Ensure all rows and columns stay within bounds */
+.row,
+[class*="row"],
+.col,
+[class*="col-"] {
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* Fix flex items that might overflow */
+.flex-item,
+[class*="flex-"],
+.card,
+.service-card,
+.testimonial-card,
+.product-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Mobile-specific padding adjustments */
+@media (max-width: 480px) {
+    /* Reduce section padding untuk mobile */
+    .section-padding {
+        padding: 40px 0;
+    }
+    
+    .section-padding-lg {
+        padding: 50px 0;
+    }
+    
+    /* Ensure cards have proper spacing */
+    .card,
+    [class*="card"] {
+        padding: 16px;
+    }
+    
+    /* Fix button sizes untuk mobile */
+    .btn,
+    [class*="btn-"] {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 481px) and (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+/* Prevent iframe overflow (maps, videos) */
+iframe {
+    max-width: 100%;
+    width: 100%;
+}
+
+.map-container,
+[class*="map-"] {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Responsive video embeds */
+.video-container,
+[class*="video-"] {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

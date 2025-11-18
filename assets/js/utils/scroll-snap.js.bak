@@ -1,2 +1,0 @@
-﻿(function(){function update(){var h=document.getElementById("header");var hh=h? h.offsetHeight:0;document.documentElement.style.setProperty("--snap-header", hh+"px")}function enable(){document.documentElement.classList.add("scroll-snap");update()}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded", enable)}else{enable()}window.addEventListener("resize", update)})();
-

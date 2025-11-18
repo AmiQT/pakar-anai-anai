@@ -44,14 +44,40 @@ button.add-to-cart-btn:active,
     box-sizing: border-box;
 }
 
+/* 🔥 CRITICAL: Prevent horizontal overflow on ALL devices */
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* 🔥 CRITICAL: Make ALL images responsive by default */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 🔥 CRITICAL: Ensure videos/iframes responsive */
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
 :root {
     /* COLOR SYSTEM */
     --primary-orange: #f58220;
-    --primary-blue: #0369a1; /* Updated for WCAG AA compliance - contrast ratio 7.8:1 */
-    --primary-blue-light: #0891b2; /* Lighter variant for backgrounds - contrast ratio 5.5:1 */
-    --header-navy: #1e3a8a;
-    --button-blue: #0284c7; /* Darkened from #24a7dc for better contrast */
-    --secondary-blue: #455a64;
+    --primary-blue: #29235C; /* Updated to navy blue */
+    --primary-blue-light: #29235C; /* Updated to navy blue */
+    --header-navy: #29235C; /* Updated to navy blue */
+    --button-blue: #29235C; /* Updated to navy blue */
+    --secondary-blue: #29235C; /* Updated to navy blue */
     --cream-bg: #f5f0ed;
     --primary-green: #25D366;
 
@@ -250,8 +276,6 @@ body {
 .gap-8 { gap: var(--space-8); }
 
 /* Section background utilities */
-.bg-default { background: var(--white); }
-.bg-alt { background: var(--cream-bg); }
 .bg-muted { background: var(--section-bg-muted); }
 .bg-brand {
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-orange));
@@ -548,3 +572,77 @@ body {
     100% { transform: rotate(360deg); }
 }
 
+/* ========================================
+   🔥 MOBILE-FIRST RESPONSIVE UTILITIES
+   Critical fixes untuk prevent overflow
+======================================== */
+
+/* Flexible elements - prevent overflow */
+* {
+    min-width: 0; /* Prevent flex items from overflowing */
+    min-height: 0;
+}
+
+/* Flexbox containers - allow wrapping */
+.flex,
+[class*="flex-"],
+[class*="-flex"],
+[style*="display: flex"],
+[style*="display:flex"] {
+    flex-wrap: wrap;
+}
+
+/* Grid containers - responsive columns */
+[style*="display: grid"],
+[style*="display:grid"],
+[class*="grid"] {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+}
+
+/* Tables - allow horizontal scroll on mobile */
+table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    table {
+        display: table;
+    }
+}
+
+/* Text - prevent long words from overflowing */
+p, li, td, th, span, a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Buttons - allow text wrapping on small screens */
+button, .btn, [class*="btn-"] {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+    button, .btn, [class*="btn-"] {
+        white-space: nowrap;
+    }
+}
+
+/* Responsive Typography */
+@media (max-width: 480px) {
+    .heading-display { font-size: 2rem; }
+    .heading-1 { font-size: 1.75rem; }
+    .heading-2 { font-size: 1.5rem; }
+    .heading-3 { font-size: 1.25rem; }
+    .text-lead { font-size: 1.125rem; }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .heading-display { font-size: 2.5rem; }
+    .heading-1 { font-size: 2rem; }
+    .heading-2 { font-size: 1.75rem; }
+}

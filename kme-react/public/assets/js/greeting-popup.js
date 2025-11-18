@@ -20,7 +20,7 @@ class GreetingPopup {
         
         this.config = {
             timeThreshold: 2000,
-            scrollThreshold: 0.3,
+            scrollThreshold: 0.2,
             fallbackTime: 10000,
             hasEngaged: false,
             timeOnPage: 0,
@@ -54,7 +54,7 @@ class GreetingPopup {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             this.config.scrollProgress = Math.min(scrollTop / docHeight, 1);
             
-            if (this.config.scrollProgress > 0.1) {
+            if (this.config.scrollProgress > 0.05) {
                 this.config.hasEngaged = true;
             }
             

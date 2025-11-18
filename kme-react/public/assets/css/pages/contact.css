@@ -7,9 +7,34 @@
     background: linear-gradient(to right, var(--primary-blue), #3a7bd5);
     color: white;
     padding: 100px 0;
+    padding-top: 220px; /* 🔥 Extra top padding untuk avoid navbar blocking */
     text-align: center;
     position: relative;
     overflow: hidden;
+}
+
+/* 🔥 Mobile: Adjust padding untuk small screens */
+@media (max-width: 480px) {
+    .contact-hero-new {
+        padding-top: 140px; /* Adjust untuk phone size */
+        padding-bottom: 60px;
+    }
+}
+
+/* 🔥 Tablet: Adjust padding untuk medium screens */
+@media (min-width: 481px) and (max-width: 768px) {
+    .contact-hero-new {
+        padding-top: 160px; /* Adjust untuk tablet size */
+        padding-bottom: 80px;
+    }
+}
+
+/* 🔥 Desktop: Full padding */
+@media (min-width: 1024px) {
+    .contact-hero-new {
+        padding-top: 220px; /* Full padding untuk desktop */
+        padding-bottom: 100px;
+    }
 }
 
 .contact-hero-new::before {
@@ -725,7 +750,7 @@ body.popup-open {
 }
 
 .popup-message-emphasis {
-    font-size: 32px;
+    font-size: 24px;
     color: #DC143C;
     background: white;
     padding: 12px 20px;
