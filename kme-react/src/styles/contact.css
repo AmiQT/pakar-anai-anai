@@ -45,7 +45,8 @@
     margin-left: auto;
     margin-right: auto;
     letter-spacing: -0.5px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); /* Reduced for better accessibility */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    /* Reduced for better accessibility */
     display: block;
 }
 
@@ -85,23 +86,7 @@
     background: var(--white);
 }
 
-.details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-8);
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.details-grid.three-cards {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-@media (max-width: 992px) {
-    .details-grid.three-cards {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-}
+/* Details grid removed - replaced by Bootstrap row */
 
 .detail-card {
     background: var(--white);
@@ -153,7 +138,8 @@
     color: var(--gray-600);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-5);
-    min-height: 80px; /* Ensure consistent height for text */
+    min-height: 80px;
+    /* Ensure consistent height for text */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,12 +167,7 @@
     background: var(--gray-50);
 }
 
-.form-map-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
-    align-items: start;
-}
+/* Form map grid removed - replaced by Bootstrap row */
 
 .form-container {
     background: var(--white);
@@ -196,15 +177,11 @@
 }
 
 .contact-form-new {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
+    /* Layout handled by Bootstrap */
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
+    /* Layout handled by Bootstrap */
 }
 
 .form-group label {
@@ -645,7 +622,7 @@
     transform: scale(0.8);
     transition: transform 0.3s ease;
     border: 3px solid #FF4500;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     margin: auto;
     align-self: center;
     justify-self: center;
@@ -734,7 +711,7 @@ body.popup-open {
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .popup-whatsapp-btn {
@@ -769,19 +746,11 @@ body.popup-open {
         font-size: var(--text-lg);
     }
 
-    .details-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-6);
-    }
+    /* Details grid responsive removed */
 
-    .form-map-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-8);
-    }
+    /* Form map grid responsive removed */
 
-    .map-container {
-        height: 300px;
-    }
+    /* Map container responsive height removed */
 
     .faq-cta-buttons {
         flex-direction: column;

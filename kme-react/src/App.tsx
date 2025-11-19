@@ -2,14 +2,24 @@ import { useEffect } from 'react'
 import ContactPage from './components/ContactPage'
 import PageContent from './components/PageContent'
 
+type LegacyConstructor<TInstance = Record<string, unknown>> = new (...args: unknown[]) => TInstance
+
+interface FooterComponentInstance {
+  render: () => void
+}
+
+interface GreetingPopupInstance {
+  destroy?: () => void
+}
+
 // Extend Window interface for legacy scripts
 declare global {
   interface Window {
-    KMENavigation: any
-    navigationModule: any
-    FooterComponent: any
-    GreetingPopup: any
-    greetingPopupInstance: any
+    KMENavigation?: LegacyConstructor
+    navigationModule?: unknown
+    FooterComponent?: LegacyConstructor<FooterComponentInstance>
+    GreetingPopup?: LegacyConstructor<GreetingPopupInstance>
+    greetingPopupInstance?: GreetingPopupInstance
   }
 }
 

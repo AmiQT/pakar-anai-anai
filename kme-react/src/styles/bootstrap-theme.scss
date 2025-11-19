@@ -1,8 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+$primary: #f58220;
+$secondary: #0369a1;
+$success: #10b981;
+$info: #3b82f6;
+$warning: #f59e0b;
+$danger: #ef4444;
+$font-family-sans-serif: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+$headings-font-family: 'Roboto', sans-serif;
+$body-color: #020617;
+$body-bg: #f5f0ed;
+$link-decoration: none;
+$enable-negative-margins: true;
+$btn-border-radius: 0.375rem;
+$btn-border-radius-lg: 0.5rem;
+$btn-border-radius-sm: 0.25rem;
+
+@import 'bootstrap/scss/bootstrap';
 
 :root {
   --primary-orange: #f58220;
@@ -36,8 +50,8 @@
   --error-light: #fee2e2;
   --info: #3b82f6;
   --info-light: #dbeafe;
-  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  --font-heading: 'Rubik Mono One', sans-serif;
+  --font-primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-heading: 'Roboto', sans-serif;
   --font-secondary: Arial, sans-serif;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -111,35 +125,38 @@
   --emergency-secondary: #dc2626;
 }
 
-@layer base {
   *,
   ::before,
   ::after {
-    @apply box-border;
+    box-sizing: border-box;
   }
 
   body {
     background-color: var(--cream-bg);
     color: var(--black);
-    @apply font-sans antialiased;
+    font-family: var(--font-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
     overflow-x: hidden;
     padding-top: 100px;
   }
 
   a {
-    @apply text-inherit no-underline;
+    color: inherit;
+    text-decoration: none;
   }
 
   ul {
-    @apply list-none;
+    list-style: none;
     margin: 0;
     padding: 0;
   }
 
   img,
   picture {
-    @apply block max-w-full;
+    display: block;
+    max-width: 100%;
   }
 
   button {
@@ -150,26 +167,46 @@
     background: var(--primary-orange);
     color: var(--white);
   }
-}
-
-@layer components {
   button.add-to-cart-btn,
   .add-to-cart-btn {
-    @apply inline-flex items-center justify-center gap-1.5 rounded-lg border-0 bg-gradient-to-br from-success to-emerald-600 px-4 py-2.5 font-semibold text-white shadow-md transition duration-300;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    border: 0;
+    border-radius: var(--radius-lg);
+    background-image: linear-gradient(to bottom right, var(--success), #059669);
+    padding: 0.625rem 1rem;
+    font-weight: var(--font-semibold);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
     text-decoration: none;
   }
 
   button.add-to-cart-btn:hover,
   .add-to-cart-btn:hover {
-    @apply -translate-y-0.5 bg-gradient-to-br from-emerald-600 to-emerald-700 shadow-lg;
+    transform: translateY(-0.125rem);
+    background-image: linear-gradient(to bottom right, #059669, #047857);
+    box-shadow: var(--shadow-lg);
   }
 
   .container {
-    @apply mx-auto w-full max-w-container px-5;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: var(--container-max-width);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .container-sm {
-    @apply mx-auto w-full max-w-container-sm px-5;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: var(--container-sm);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .bg-default {
@@ -182,7 +219,7 @@
   }
 
   .section-header {
-    @apply text-center;
+    text-align: center;
     margin-bottom: var(--space-16);
   }
 
@@ -203,7 +240,13 @@
   }
 
   #header {
-    @apply fixed left-0 right-0 top-0 z-[10002] bg-white shadow-md;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10002;
+    background-color: var(--white);
+    box-shadow: var(--shadow-md);
   }
 
   .top-contact-bar {
@@ -213,15 +256,20 @@
   }
 
   .top-contact-bar .container {
-    @apply flex items-center justify-between gap-5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
   }
 
   .header-left-group {
-    @apply flex items-center gap-5;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
   }
 
   .header-logo {
-    @apply flex-shrink-0;
+    flex-shrink: 0;
   }
 
   .header-logo-img {
@@ -246,11 +294,21 @@
   }
 
   .header-social {
-    @apply flex items-center gap-4;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
   .social-icon {
-    @apply flex h-10 w-10 items-center justify-center rounded-full text-base text-white transition duration-300 ease-out;
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    font-size: 1rem;
+    color: var(--white);
+    transition: all 0.3s ease-out;
     background-color: rgba(30, 58, 138, 0.6);
   }
 
@@ -266,11 +324,13 @@
   }
 
   .main-navigation .container {
-    @apply flex items-center justify-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .nav-logo {
-    @apply flex-shrink-0;
+    flex-shrink: 0;
   }
 
   .logo-img {
@@ -279,7 +339,10 @@
   }
 
   .navigation-menu {
-    @apply flex list-none items-center gap-6;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 1.5rem;
   }
 
   .nav-item {
@@ -377,7 +440,10 @@
   }
 
   .toggle-line {
-    @apply h-0.5 w-6 rounded-full transition;
+    height: 0.125rem;
+    width: 1.5rem;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
     background-color: var(--black);
   }
 
@@ -402,21 +468,21 @@
   }
 
   .value-proposition h1 {
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    font-weight: 800;
+    font-size: clamp(1.8rem, 3.25vw, 2.6rem);
+    font-weight: var(--font-semibold);
     color: var(--black);
-    line-height: 1.1;
-    margin-bottom: 25px;
+    line-height: 1.2;
+    margin-bottom: 20px;
     text-align: left;
     letter-spacing: -0.01em;
   }
 
   .hero-subtitle-year {
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    font-weight: 800;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    font-weight: var(--font-medium);
     color: var(--black);
-    line-height: 1.1;
-    margin-bottom: 25px;
+    line-height: 1.25;
+    margin-bottom: 18px;
     text-align: left;
     letter-spacing: -0.01em;
   }
@@ -464,7 +530,10 @@
   }
 
   .primary-cta-container {
-    @apply flex flex-wrap items-center gap-5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
   }
 
   .btn-whatsapp-primary {
@@ -544,10 +613,13 @@
   }
 
   .video-info h4 {
-    @apply flex items-center gap-3 text-base font-semibold;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: var(--font-semibold);
     color: var(--black);
   }
-}
 
 @media (max-width: 992px) {
   .section-header h2 {
@@ -643,6 +715,7 @@
   .mobile-menu-toggle {
     display: flex;
   }
+
 }
 
 @media (min-width: 769px) {
