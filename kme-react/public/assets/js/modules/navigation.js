@@ -60,7 +60,7 @@ class Navigation {
         });
         
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && this.isMenuOpen) {
+            if (window.innerWidth > 992 && this.isMenuOpen) {
                 this.closeMobileMenu();
             }
         });
@@ -126,12 +126,26 @@ class Navigation {
             });
             
             mainLink.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
+                // Check if mobile view
+                if (window.innerWidth <= 992) { // Updated breakpoint to match CSS
                     e.preventDefault();
-                    e.stopPropagation(); // Stop other scripts from interfering
+                    e.stopPropagation();
+                    console.log('Toggling dropdown for:', mainLink.textContent.trim());
                     this.toggleDropdown(dropdownMenu);
                 }
             });
+
+            // Also handle icon click specifically if needed
+            const icon = mainLink.querySelector('i');
+            if (icon) {
+                icon.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 992) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        this.toggleDropdown(dropdownMenu);
+                    }
+                });
+            }
 
             dropdownMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -144,8 +158,10 @@ class Navigation {
     }
     
     showDropdown(dropdown) {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 992) {
             dropdown.classList.add('active');
+            // Force reflow/repaint
+            void dropdown.offsetHeight;
         } else {
             dropdown.style.opacity = '1';
             dropdown.style.visibility = 'visible';
@@ -154,7 +170,7 @@ class Navigation {
     }
     
     hideDropdown(dropdown) {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 992) {
             dropdown.classList.remove('active');
         } else {
             dropdown.style.opacity = '0';
@@ -249,7 +265,16 @@ if (typeof window !== 'undefined') {
 
 // Auto-initialize for non-React pages
 if (typeof window !== 'undefined' && !window.navigationModule) {
-    document.addEventListener('DOMContentLoaded', () => {
-        window.navigationModule = new Navigation();
-    });
+    const initNav = () => {
+        if (!window.navigationModule) {
+            window.navigationModule = new Navigation();
+            console.log('Navigation module initialized');
+        }
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNav);
+    } else {
+        initNav();
+    }
 }

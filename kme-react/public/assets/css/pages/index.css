@@ -340,6 +340,7 @@
     background: var(--cream-bg);
     padding: 60px 0 32px;
     position: relative;
+    z-index: 10;
 }
 .video-testimonials-section .section-header {
     text-align: center;
@@ -380,6 +381,7 @@
     border: 2px solid rgba(110, 193, 228, 0.2);
     transition: all var(--transition-medium);
     position: relative;
+    z-index: 20;
     overflow: hidden;
     min-height: 320px;
     display: flex;

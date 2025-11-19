@@ -1,4 +1,16 @@
-const PageContent = () => (
+import { useState } from 'react'
+
+const PageContent = () => {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+
+  const toggleDropdown = (e: React.MouseEvent, name: string) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault()
+      setActiveDropdown(activeDropdown === name ? null : name)
+    }
+  }
+
+  return (
   <div>
   {/* Header */}
   <header id="header">
@@ -45,20 +57,20 @@ const PageContent = () => (
             <a href="index.html" className="nav-link active">HOME</a>
           </li>
           <li className="nav-item has-dropdown">
-            <a href="#" className="nav-link" onClick={(e) => e.preventDefault()}>
+            <a href="#" className="nav-link" onClick={(e) => toggleDropdown(e, 'about')}>
               ABOUT US <i className="fas fa-chevron-down dropdown-arrow" />
             </a>
-            <ul className="dropdown-submenu">
+            <ul className={`dropdown-submenu ${activeDropdown === 'about' ? 'active' : ''}`}>
               <li><a href="pages/about.html">Company Info</a></li>
               <li><a href="pages/testimoni.html">Testimonials</a></li>
               <li><a href="pages/gallery.html">Gallery</a></li>
             </ul>
           </li>
           <li className="nav-item has-dropdown">
-            <a href="#" className="nav-link" onClick={(e) => e.preventDefault()}>
+            <a href="#" className="nav-link" onClick={(e) => toggleDropdown(e, 'services')}>
               SERVICES <i className="fas fa-chevron-down dropdown-arrow" />
             </a>
-            <ul className="dropdown-submenu">
+            <ul className={`dropdown-submenu ${activeDropdown === 'services' ? 'active' : ''}`}>
               <li><a href="pages/services.html#CT">Anai-Anai: Corrective Treatment</a></li>
               <li><a href="pages/services.html#ST">Anai-Anai: Soil Treatment</a></li>
               <li><a href="pages/services.html#BS">Anai-Anai: Baiting System</a></li>
@@ -571,7 +583,8 @@ const PageContent = () => (
   {/* Footer Component - Loaded by footer.js */}
   <div id="footer-container" />
   </div>
-)
+  )
+}
 
 export default PageContent
 
